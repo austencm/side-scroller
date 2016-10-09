@@ -9,6 +9,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\Text_spr</sprite>
+    <sprite>sprites\dummy</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -19,6 +20,7 @@
     <object>objects\Room_Generate</object>
     <object>objects\Floor</object>
     <object>objects\Camera</object>
+    <object>objects\Player</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
