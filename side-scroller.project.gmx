@@ -11,12 +11,14 @@
     <sprite>sprites\spr_text</sprite>
     <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\sc_Generate.gml</script>
     <script>scripts\sc_PlayerMove.gml</script>
+    <script>scripts\sc_wallGen.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Room_Generate</object>
