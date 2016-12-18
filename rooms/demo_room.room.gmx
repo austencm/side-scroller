@@ -52,8 +52,8 @@
   </views>
   <instances>
     <instance objName="Room_Generate" x="0" y="0" name="inst_CA31E7EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="352" y="280" name="inst_971139D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="296" y="320" name="inst_557C379D" locked="0" code="" scaleX="13" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player" x="56" y="320" name="inst_F464C2FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="16" y="360" name="inst_A778935C" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="520" y="360" w="16" h="16" xo="0" yo="0" id="10000001" name="inst_BFFB3D90" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

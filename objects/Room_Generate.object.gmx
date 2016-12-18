@@ -25,20 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate_Terrain
-sc_Generate(5000, 50, 10, 50000)
+            <string>///Generate_Wall
+sc_wallGen(5000, 4, 3, 20, 3) ;
 
 /*
-
-    - argument0 = Lowest point (room_height + argument0)
-    - argument1 = Maximum height with wich the terrain can lift
-    - argument2 = Space between two points
-    - argument3 = Lenght of terrain (to the left and to the right)
-
+    argument0 = length of terrain (eg: 50000 px) wide
+    argument1 = size to RNG down from previous wall generated (eg: 2 objects down)
+    argument2 = size to RNG up from previous wall generated  
 */
-
-//Create_Camera
-instance_create(0,0,Camera);
 </string>
           </argument>
         </arguments>
@@ -59,14 +53,20 @@ instance_create(0,0,Camera);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate_Wall
-sc_wallGen(5000, 4, 3, 20, 3) ;
+            <string>///Generate_Terrain
+sc_Generate(5000, 50, 10, 50000)
 
 /*
-    argument0 = length of terrain (eg: 50000 px) wide
-    argument1 = size to RNG down from previous wall generated (eg: 2 objects down)
-    argument2 = size to RNG up from previous wall generated  
+
+    - argument0 = Lowest point (room_height + argument0)
+    - argument1 = Maximum height with wich the terrain can lift
+    - argument2 = Space between two points
+    - argument3 = Lenght of terrain (to the left and to the right)
+
 */
+
+//Create_Camera
+instance_create(0,0,Camera);
 </string>
           </argument>
         </arguments>
