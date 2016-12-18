@@ -5,8 +5,7 @@
   </Configs>
   <NewExtensions>
     <extension index="0">extensions\RandomTerrainGeneratorByTP</extension>
-    <extension index="1">extensions\Random Platformer</extension>
-    <extension index="2">extensions\Platformer Procedural Generation</extension>
+    <extension index="1">extensions\Platformer Procedural Generation</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
