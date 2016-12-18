@@ -25,36 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-<<<<<<< HEAD
             <string>///Generate_Wall
 sc_wallGen(5000, 4, 3, 20, 3) ;
-=======
-            <string>/// Init Globals
-
-global.BLOCK_HEIGHT = obj_wall.sprite_height;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Generate_Terrain
-sc_Generate(5000, 50, 10, 50000)
->>>>>>> d28b4ae1b35eeb74fb7ce9bce84ed1a1151ed83b
 
 /*
     argument0 = length of terrain (eg: 50000 px) wide
