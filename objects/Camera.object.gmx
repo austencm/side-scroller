@@ -27,33 +27,15 @@
             <kind>1</kind>
             <string>///Camera_Movement
 
+
+
+
 //Set view x and y to Camera (Make sure views are enabled in your room)
-view_xview[0] = x;
-view_yview[0] = y;
+// view_xview[0] = obj_player.x;
+// view_yview[0] = obj_player.y;
 
-//Left
-if keyboard_check(vk_left)
-{
-    x -= 20;
-}                              
-
-//Right
-if keyboard_check(vk_right)
-{
-    x += 20;
-}
-
-//Up
-if keyboard_check(vk_up)
-{
-    y -= 20;
-}                              
-
-//Down
-if keyboard_check(vk_down)
-{
-    y += 20;
-}
+view_xview[0] = (obj_player.x+((mouse_x-obj_player.x)/2))-view_wview[0]/2;
+view_yview[0] = (obj_player.y+((mouse_y-obj_player.y)/2))-view_hview[0]/2;
 </string>
           </argument>
         </arguments>

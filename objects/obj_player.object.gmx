@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize Variables
-grav = 0.2;
+grav = 0.4;
 hsp = 0;
 vsp = 0;
 jumpspeed = 10;
-movespeed = 4;
+movespeed = 5;
 </string>
           </argument>
         </arguments>
@@ -75,6 +75,7 @@ if (place_meeting(x + hsp, y, obj_wall)) {
     hsp = 0;
 }
 x += hsp;
+
 // vertical collision
 if (place_meeting(x, y + vsp, obj_wall)) {
     while (!place_meeting(x, y + sign(vsp), obj_wall)) {
