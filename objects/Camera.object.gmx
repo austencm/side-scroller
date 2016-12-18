@@ -34,8 +34,17 @@
 // view_xview[0] = obj_player.x;
 // view_yview[0] = obj_player.y;
 
-view_xview[0] = (obj_player.x+((mouse_x-obj_player.x)/2))-view_wview[0]/2;
-view_yview[0] = (obj_player.y+((mouse_y-obj_player.y)/2))-view_hview[0]/2;
+// view_xview[0] = (obj_player.x+((mouse_x-obj_player.x)/2))-view_wview[0]/2;
+// view_yview[0] = (obj_player.y+((mouse_y-obj_player.y)/2))-view_hview[0]/2;
+
+camera_x = mean(obj_player.x, obj_player.x, obj_player.x, obj_player.x, mouse_x);
+camera_y = mean(obj_player.y, obj_player.y, obj_player.y, obj_player.y, mouse_y);
+
+x = lerp(x, camera_x, 0.1);
+y = lerp(y, camera_y, 0.1);
+
+view_xview[0] = x - view_wview[0] / 2;
+view_yview[0] = y - view_hview[0] / 2;
 </string>
           </argument>
         </arguments>
