@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,54 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate_Wall
-sc_wallGen(5000, 2, 1, 20, 1) ;
+            <string>jumped = false;
+landed = false;
 
-/*
-    argument0 = length of terrain (eg: 50000 px) wide
-    argument1 = size to RNG down from previous wall generated (eg: 2 objects down)
-    argument2 = size to RNG up from previous wall generated  
-*/
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Generate_Terrain
-sc_Generate(5000, 50, 10, 50000)
+platformTarget = 0;
+wallTarget     = 0;
 
-/*
+push = false;
 
-    - argument0 = Lowest point (room_height + argument0)
-    - argument1 = Maximum height with wich the terrain can lift
-    - argument2 = Space between two points
-    - argument3 = Lenght of terrain (to the left and to the right)
+// Velocity
+vx = 0;
+vy = 0;
 
-*/
+// Used for sub-pixel movement
+cx = 0;
+cy = 0;
 
-//Create_Camera
-instance_create(0,0,Camera);
+onGround = OnGround();
+cLeft    = place_meeting(x - 1, y, oBlock);
+cRight   = place_meeting(x + 1, y, oBlock);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,11 +66,53 @@ instance_create(0,0,Camera);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Room_Restart
-if keyboard_check_pressed(ord("R"))
-{
-    room_restart();
-}
+            <string>// Handle sub-pixel movement
+cx += vx;
+cy += vy;
+vxNew = round(cx);
+vyNew = round(cy);
+cx -= vxNew;
+cy -= vyNew;
+
+EntityStep();
+
+// Pit death
+if (bbox_right &lt; 0 || bbox_left &gt; room_width || bbox_top &gt; room_height || bbox_bottom &lt; 0)
+    instance_destroy();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>onGround = OnGround();
+
+cLeft  = place_meeting(x - 1, y, oBlock); 
+cRight = place_meeting(x + 1, y, oBlock);
+
+if (cLeft) 
+    wallTarget = instance_place(x - 1, y, oBlock);
+
+if (cRight) 
+    wallTarget = instance_place(x + 1, y, oBlock);
+
 </string>
           </argument>
         </arguments>
@@ -111,8 +130,5 @@ if keyboard_check_pressed(ord("R"))
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>10,10</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>

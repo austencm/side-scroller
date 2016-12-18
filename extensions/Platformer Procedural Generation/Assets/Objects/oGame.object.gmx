@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,18 +25,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate_Wall
-sc_wallGen(5000, 2, 1, 20, 1) ;
+            <string>ZONE_WIDTH = 20;
+ZONE_HEIGHT = 12;
+TILE_SIZE = 8;
 
-/*
-    argument0 = length of terrain (eg: 50000 px) wide
-    argument1 = size to RNG down from previous wall generated (eg: 2 objects down)
-    argument2 = size to RNG up from previous wall generated  
-*/
+gameDebug = false;
+keyFrame  = 0;
+
+worldLayout      = "";
+worldWidth       = 0;
+worldHeight      = 0;
+worldStrPosition = 1; // 1-indexed strings in GM..?
+
+xx = 0;
+yy = 0;
+
+// This flag is set to true after generation
+init = false;
+
+// Choose one of two tileset options
+tile = choose(0, 1);
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="1">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -53,20 +67,13 @@ sc_wallGen(5000, 2, 1, 20, 1) ;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Generate_Terrain
-sc_Generate(5000, 50, 10, 50000)
+            <string>/// Room generation
 
-/*
-
-    - argument0 = Lowest point (room_height + argument0)
-    - argument1 = Maximum height with wich the terrain can lift
-    - argument2 = Space between two points
-    - argument3 = Lenght of terrain (to the left and to the right)
-
-*/
-
-//Create_Camera
-instance_create(0,0,Camera);
+if (!init) {
+    // Do one step of generation
+    ProcGen();
+    ++keyFrame;
+}
 </string>
           </argument>
         </arguments>
@@ -89,10 +96,77 @@ instance_create(0,0,Camera);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Room_Restart
-if keyboard_check_pressed(ord("R"))
-{
+            <string>/// Debug stuff
+
+if (keyboard_check_pressed(ord('R')))
     room_restart();
+
+if (keyboard_check_pressed(vk_escape))
+    game_end();
+ 
+// Player to cursor   
+if (mouse_check_button_pressed(mb_left)) {
+    if (instance_exists(oPlayer)) {
+        with (oPlayer) {
+            x = mouse_x;
+            y = mouse_y;
+        }
+    } else {
+        instance_create(mouse_x, mouse_y, oPlayer);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse terrain generation
+
+if (gameDebug) {
+    if (mouse_check_button(mb_left)) {
+        var mx, my;
+        
+        // Round to grid
+        mx = mouse_x - (mouse_x mod TILE_SIZE);
+        my = mouse_y - (mouse_y mod TILE_SIZE);
+        
+        // Spawn terrain at cursor
+        if (!instance_position(mx, my, oParSolid))
+            instance_create(mx, my, oBlock);
+       
+        // Re-tile terrain    
+        with (oBlock)
+            event_perform(ev_other, ev_user0);
+    } else if (mouse_check_button(mb_right)) {
+        var mx, my;
+        
+        // Round to grid
+        mx = mouse_x - (mouse_x mod TILE_SIZE);
+        my = mouse_y - (mouse_y mod TILE_SIZE);
+        
+        // Destroy terrain at cursor
+        with (instance_position(mx, my, oParSolid))
+            instance_destroy();
+            
+        // Re-tile terrain  
+        with (oBlock)
+            event_perform(ev_other, ev_user0);
+    }
 }
 </string>
           </argument>
@@ -111,8 +185,5 @@ if keyboard_check_pressed(ord("R"))
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>10,10</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>
