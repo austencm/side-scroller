@@ -57,7 +57,7 @@ jumping = false;
             <string>/// Input Capture
 // get player's input
 key_right = keyboard_check(ord("D"));
-key_left = -keyboard_check(ord("A"));
+key_left = keyboard_check(ord("A"));
 //key_up = keyboard_check(ord("W"));
 //key_down = keyboard_check(ord("S"));
 key_jump = keyboard_check_pressed(vk_space);
@@ -83,7 +83,7 @@ key_jump = keyboard_check_pressed(vk_space);
             <kind>1</kind>
             <string>/// Movement
 
-move_dir = key_left + key_right;
+move_dir = -key_left + key_right;
 // set horizontal speed
 hsp = move_dir * movespeed;
 
@@ -150,6 +150,30 @@ if ( place_meeting(x, y + vsp, obj_wall) ||
 y += vsp;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Update Sprite
+
+if (key_left) image_xscale = -1;
+if (key_right) image_xscale = 1;
 </string>
           </argument>
         </arguments>
