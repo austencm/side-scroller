@@ -78,7 +78,7 @@ if keyboard_check(vk_down)
             <kind>1</kind>
             <string>///Draw_Text
 //draw help text
-draw_sprite(Text_spr,0,view_xview[0],view_yview[0]+30);
+draw_sprite(spr_text,0,view_xview[0],view_yview[0]+30);
 
 //Draw fps
 draw_set_colour(c_white);

@@ -8,7 +8,7 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\Text_spr</sprite>
+    <sprite>sprites\spr_text</sprite>
     <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_wall</sprite>
   </sprites>
@@ -26,7 +26,7 @@
     <object>objects\obj_wall</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\demo_room</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
