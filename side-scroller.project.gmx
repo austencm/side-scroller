@@ -9,24 +9,20 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_text</sprite>
     <sprite>sprites\spr_dummy</sprite>
-    <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\sc_Generate.gml</script>
-    <script>scripts\sc_PlayerMove.gml</script>
-    <script>scripts\sc_wallGen.gml</script>
+    <script>scripts\generate_chunk.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\Room_Generate</object>
-    <object>objects\Floor</object>
+    <object>objects\Terrain_Generator</object>
     <object>objects\Camera</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_wall</object>
+    <object>objects\obj_block</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\demo_room</room>

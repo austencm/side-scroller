@@ -25,17 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Camera_Movement
-
-
-
-
-//Set view x and y to Camera (Make sure views are enabled in your room)
-// view_xview[0] = obj_player.x;
-// view_yview[0] = obj_player.y;
-
-// view_xview[0] = (obj_player.x+((mouse_x-obj_player.x)/2))-view_wview[0]/2;
-// view_yview[0] = (obj_player.y+((mouse_y-obj_player.y)/2))-view_hview[0]/2;
+            <string>/// Camera Movement
 
 camera_x = mean(obj_player.x, obj_player.x, obj_player.x, obj_player.x, mouse_x);
 camera_y = mean(obj_player.y, obj_player.y, obj_player.y, obj_player.y, mouse_y);
@@ -67,11 +57,9 @@ view_yview[0] = y - view_hview[0] / 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw_Text
-//draw help text
-draw_sprite(spr_text,0,view_xview[0],view_yview[0]+30);
+            <string>/// Draw FPS
 
-//Draw fps
+
 draw_set_colour(c_white);
 draw_text(view_xview[0]+15,view_yview[0]+10,"FPS: " + string(fps));
 draw_set_colour(c_black);

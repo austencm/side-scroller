@@ -26,13 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize Variables
+
 grav = 0.4;
 hsp = 0;
 vsp = 0;
 jumpspeed = 10;
-movespeed = 5;
+movespeed = 7;
 jumping = false;
-OBJ_SIZE = 8;
 </string>
           </argument>
         </arguments>
@@ -92,7 +92,7 @@ hsp = move_dir * movespeed;
 if (vsp &lt; 15) vsp += grav;
 
 // jumping
-if ( place_meeting(x, y + 1, obj_wall) ) {
+if ( place_meeting(x, y + 1, obj_block) ) {
     if ( key_jump ) {
         vsp = key_jump * -jumpspeed;
     }
@@ -123,15 +123,15 @@ if ( place_meeting(x, y + 1, obj_wall) ) {
             <string>/// Handle Solid Collisions
 
 // horizontal collision
-if (place_meeting(x + hsp, y, obj_wall)) {   
+if (place_meeting(x + hsp, y, obj_block)) {   
     // auto step-up
     // is this obstruction only one block high? 
-    if ( !place_meeting(x + hsp, y - global.BLOCK_HEIGHT, obj_wall) ) {
+    if ( !place_meeting(x + hsp, y - global.BLOCK_HEIGHT, obj_block) ) {
         y -= global.BLOCK_HEIGHT;
     }
     else {
         // inch towards the obstruction until we're touching it
-        while (!place_meeting(x + sign(hsp), y, obj_wall)) {
+        while (!place_meeting(x + sign(hsp), y, obj_block)) {
             x += sign(hsp);
         }
         hsp = 0;
@@ -140,10 +140,10 @@ if (place_meeting(x + hsp, y, obj_wall)) {
 x += hsp;
 
 // vertical collision
-if ( place_meeting(x, y + vsp, obj_wall) ||
-    ( !jumping &amp;&amp; place_meeting(x, y + global.BLOCK_HEIGHT, obj_wall) ) ) {
+if ( place_meeting(x, y + vsp, obj_block) ||
+    ( !jumping &amp;&amp; place_meeting(x, y + global.BLOCK_HEIGHT, obj_block) ) ) {
      
-    while (!place_meeting(x, y + sign(vsp), obj_wall)) {
+    while (!place_meeting(x, y + sign(vsp), obj_block)) {
         y += sign(vsp);
     }
     vsp = 0;
