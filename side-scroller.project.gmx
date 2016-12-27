@@ -23,6 +23,7 @@
     <object>objects\Camera</object>
     <object>objects\obj_player</object>
     <object>objects\obj_block</object>
+    <object>objects\Rendering</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\demo_room</room>
