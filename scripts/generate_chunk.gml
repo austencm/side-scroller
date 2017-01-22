@@ -14,7 +14,7 @@ randomize();
 pos = 0;
 ypos = (room_height) / 2 + 20; //Choose height to start terrain
 ypos_start = ypos; // Start position of ypos
-global.BLOCK_HEIGHT = 8; // Add horizontal spacing between points length
+//global.BLOCK_HEIGHT = 8; // Add horizontal spacing between points length
 spacing = argument4; // repetative height placement upper limit
 len = argument0; // Length of terrain
 

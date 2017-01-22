@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Camera Movement
 
+/*
 camera_x = mean(obj_player.x, obj_player.x, obj_player.x, obj_player.x, mouse_x);
 camera_y = mean(obj_player.y, obj_player.y, obj_player.y, obj_player.y, mouse_y);
 
@@ -35,6 +36,10 @@ y = lerp(y, camera_y, 0.1);
 
 view_xview[0] = x - view_wview[0] / 2;
 view_yview[0] = y - view_hview[0] / 2;
+*/
+
+view_xview[0] = obj_player.x - view_wview[0] / 2;
+view_yview[0] = obj_player.y - view_hview[0] / 2;
 </string>
           </argument>
         </arguments>

@@ -11,7 +11,9 @@
   <sprites name="sprites">
     <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_block</sprite>
-    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_player_rest_front</sprite>
+    <sprite>sprites\spr_player_rest_side</sprite>
+    <sprite>sprites\spr_player_run</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
