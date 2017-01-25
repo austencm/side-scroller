@@ -51,13 +51,3 @@ pos = 0;
 
 //Randomize again
 randomize();
-
-//Create_Terrain to the left
-while (pos > -len) {   
-    randomize();
-    ypos += choose(-global.BLOCK_HEIGHT, global.BLOCK_HEIGHT); //Choose random height to make terrain
-    
-    pos -= global.BLOCK_HEIGHT; //reduce horizontal length
-    
-    instance_create(pos, ypos, obj_block); //Create floor
-}

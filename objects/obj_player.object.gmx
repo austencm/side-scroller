@@ -29,8 +29,11 @@
 grav = 0.4;
 hsp = 0;
 vsp = 0;
-jumpspeed = 7;
-movespeed = 4;
+jumpspeed = 10;
+movespeed_max = 7;
+movespeed_min = 3.5;
+movespeed_crouch = 2;
+movespeed = 3.5;
 jumping = false;
 </string>
           </argument>
@@ -58,8 +61,8 @@ jumping = false;
 // get player's input
 key_right = keyboard_check(ord("D"));
 key_left = keyboard_check(ord("A"));
-//key_up = keyboard_check(ord("W"));
-//key_down = keyboard_check(ord("S"));
+key_up = keyboard_check(ord("W"));
+key_down = keyboard_check(ord("S"));
 key_jump = keyboard_check_pressed(vk_space);
 </string>
           </argument>
@@ -85,6 +88,10 @@ key_jump = keyboard_check_pressed(vk_space);
 
 move_dir = -key_left + key_right;
 // set horizontal speed
+if (hsp == 0) movespeed = movespeed_min;
+if (hsp != 0 &amp;&amp; movespeed &lt; movespeed_max) movespeed += .01;
+if (key_down) movespeed = movespeed_crouch;
+
 hsp = move_dir * movespeed;
 
 // apply gravity
@@ -179,8 +186,16 @@ if (place_meeting(x, y + 1, obj_block)) {
     }
     else {
         sprite_index = spr_player_rest_side;
-        image_speed = .05;
+        image_speed = .07;
     }
+    if (key_down != 0) {
+        sprite_index = spr_player_crouch;
+        image_speed = .07;
+    }
+}
+else {
+    sprite_index = spr_player_jump;
+    image_speed = .2;
 }
 </string>
           </argument>

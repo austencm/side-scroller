@@ -14,11 +14,14 @@
     <sprite>sprites\spr_player_rest_front</sprite>
     <sprite>sprites\spr_player_rest_side</sprite>
     <sprite>sprites\spr_player_run</sprite>
+    <sprite>sprites\spr_player_crouch</sprite>
+    <sprite>sprites\spr_player_jump</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\generate_chunk.gml</script>
+    <script>scripts\generate_bumpy_ground.gml</script>
+    <script>scripts\generate_platforms.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Terrain_Generator</object>

@@ -48,8 +48,9 @@ global.BLOCK_HEIGHT = obj_block.sprite_height;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Generate Terrain
-generate_chunk(5000, 2, 1, 20, 1) ;
+            <string>/// generate bumpy ground (right)
+
+generate_bumpy_ground(5000, 2, 1, 20, 1) ;
 
 
 
@@ -61,6 +62,29 @@ generate_chunk(5000, 2, 1, 20, 1) ;
     argument1 = size to RNG down from previous wall generated (eg: 2 objects down)
     argument2 = size to RNG up from previous wall generated  
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///generate platforms (left)
+
+generate_platforms();
 </string>
           </argument>
         </arguments>
