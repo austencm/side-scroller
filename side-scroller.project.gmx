@@ -6,6 +6,7 @@
   <NewExtensions>
     <extension index="0">extensions\RandomTerrainGeneratorByTP</extension>
     <extension index="1">extensions\Platformer Procedural Generation</extension>
+    <extension index="2">extensions\Perlin Noise 1D</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -20,18 +21,33 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\generate_chunk.gml</script>
     <script>scripts\generate_bumpy_ground.gml</script>
     <script>scripts\generate_platforms.gml</script>
+    <script>scripts\view_center_x.gml</script>
+    <script>scripts\view_center_y.gml</script>
+    <scripts name="Perlin Noise">
+      <scripts name="1D">
+        <script>scripts\PN_1D_noise.gml</script>
+        <script>scripts\PN_1D_smoothedNoise.gml</script>
+        <script>scripts\PN_1D_interpolatedNoise.gml</script>
+        <script>scripts\PN_1D_perlinNoise.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <objects name="objects">
+    <object>objects\Initializer</object>
+    <object>objects\Rendering</object>
     <object>objects\Terrain_Generator</object>
     <object>objects\Camera</object>
     <object>objects\obj_player</object>
     <object>objects\obj_block</object>
-    <object>objects\Rendering</object>
+    <object>objects\obj_perlin_noise_test</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\demo_room</room>
+    <room>rooms\init__keep_me_first</room>
+    <room>rooms\demo_movement</room>
+    <room>rooms\demo_terrain</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

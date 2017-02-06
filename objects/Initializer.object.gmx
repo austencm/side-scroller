@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,14 +25,51 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set vars
+            <string>/// Set global vars
 
-// Distance the rendering area extends beyond the view
-// Prevents objects flashing in
-RENDER_LOOKAHEAD = 1;
+global.BLOCK_SIZE = 16;
+global.CHUNK_WIDTH = 1200;
+
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Setup
+
+debug = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>222</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_next_room</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="3" enumb="0">
@@ -52,10 +89,14 @@ RENDER_LOOKAHEAD = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Activate only blocks in view
+            <string>/// Debug
 
-instance_deactivate_object(obj_block);
-instance_activate_region(view_xview[0] - RENDER_LOOKAHEAD, view_yview[0] - RENDER_LOOKAHEAD, view_wview[0] + RENDER_LOOKAHEAD + 1, view_hview[0] + RENDER_LOOKAHEAD + 1, true);
+if (debug == false)
+    return false;
+
+if keyboard_check_pressed(ord("R")) {
+    room_restart();
+}
 </string>
           </argument>
         </arguments>
@@ -73,5 +114,8 @@ instance_activate_region(view_xview[0] - RENDER_LOOKAHEAD, view_yview[0] - RENDE
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>0,0</point>
+    <point>10,10</point>
+  </PhysicsShapePoints>
 </object>

@@ -14,7 +14,7 @@ randomize();
 pos = 0;
 ypos = (room_height) / 2 + 20; //Choose height to start terrain
 ypos_start = ypos; // Start position of ypos
-//global.BLOCK_HEIGHT = 8; // Add horizontal spacing between points length
+//global.BLOCK_SIZE = 8; // Add horizontal spacing between points length
 spacing = argument4; // repetative height placement upper limit
 len = argument0; // Length of terrain
 
@@ -27,21 +27,21 @@ while (pos < room_width + len) {
     
     if (rand_roll < 1) {
         // choose random direction (up/down/neither) to gen next wall
-        random_add = choose(-global.BLOCK_HEIGHT, 0, global.BLOCK_HEIGHT);
+        random_add = choose(-global.BLOCK_SIZE, 0, global.BLOCK_SIZE);
         ypos += random_add;
         
         // then increase it by a random factor up to arg1/2
-        if (random_add > 0) ypos += floor(random_range(0, argument1)) * global.BLOCK_HEIGHT;
-        else ypos -= floor(random_range(0, argument2)) * global.BLOCK_HEIGHT;
+        if (random_add > 0) ypos += floor(random_range(0, argument1)) * global.BLOCK_SIZE;
+        else ypos -= floor(random_range(0, argument2)) * global.BLOCK_SIZE;
     
         rand_roll = floor(random_range(0, spacing));
     }
     else rand_roll--;
     
-    pos += global.BLOCK_HEIGHT; //add horizontal length
+    pos += global.BLOCK_SIZE; //add horizontal length
      
     instance_create(pos, ypos, obj_block); //Create wall
-    for (ypos2 = ypos + global.BLOCK_HEIGHT; ypos2 < ypos + argument3 * global.BLOCK_HEIGHT; ypos2 += global.BLOCK_HEIGHT)
+    for (ypos2 = ypos + global.BLOCK_SIZE; ypos2 < ypos + argument3 * global.BLOCK_SIZE; ypos2 += global.BLOCK_SIZE)
         instance_create(pos, ypos2, obj_block);
 }
 

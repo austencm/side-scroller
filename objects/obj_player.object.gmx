@@ -132,8 +132,8 @@ if ( place_meeting(x, y + 1, obj_block) ) {
 if (place_meeting(x + hsp, y, obj_block)) {   
     // auto step-up
     // is this obstruction only one block high? 
-    if ( !place_meeting(x + hsp, y - global.BLOCK_HEIGHT, obj_block) ) {
-        y -= global.BLOCK_HEIGHT;
+    if ( !place_meeting(x + hsp, y - global.BLOCK_SIZE, obj_block) ) {
+        y -= global.BLOCK_SIZE;
     }
     else {
         // inch towards the obstruction until we're touching it
@@ -147,7 +147,7 @@ x += hsp;
 
 // vertical collision
 if ( place_meeting(x, y + vsp, obj_block) ||
-    ( !jumping &amp;&amp; place_meeting(x, y + global.BLOCK_HEIGHT, obj_block) ) ) {
+    ( !jumping &amp;&amp; place_meeting(x, y + global.BLOCK_SIZE, obj_block) ) ) {
      
     while (!place_meeting(x, y + sign(vsp), obj_block)) {
         y += sign(vsp);
