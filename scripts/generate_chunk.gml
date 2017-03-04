@@ -1,16 +1,22 @@
-// arg0: start x
-// arg1: generate left (optional)
+// generate_chunk( start_x [num], generator [string], dir [bool] )
+ 
+// start_x: x position where first tile will be generated
+// dir (optional): direction to generate. true = right, false = left
 
-// show_message('generating chunk');
+// returns: the x position of the end of the new chunk
 
-var start_x = argument[0];
-var gen_dir = 1;
+var start_x = argument[0],
+    generator = argument[1],
+    dir = 1,
+    new_x = false;
 
-if (argument_count > 1 && argument[1] == true)
-    gen_dir = -1;
+if ( argument_count > 2 && !!argument[2] == true )
+    dir = -1;
 
-for (var xx = global.BLOCK_SIZE; xx < global.CHUNK_WIDTH; xx += global.BLOCK_SIZE) {
-    instance_create(start_x + (xx * gen_dir), room_height / 2, obj_block);
+for (var xx = 0; xx < global.CHUNK_WIDTH; xx += global.BLOCK_SIZE) {
+    new_x = script_execute( generator, start_x + (xx * dir), xx );
+    ///if ( new_x && is_real(new_x) )
+        //xx = new_x;
 }
 
-return start_x + (xx * gen_dir);
+return start_x + (xx * dir);

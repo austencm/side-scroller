@@ -30,10 +30,9 @@
 terrain_extent_left = 0;
 terrain_extent_right = 0;
 
-
 // Generate initial chunk
 terrain_extent_left = view_center_x() - global.CHUNK_WIDTH / 2;
-terrain_extent_right = generate_chunk(terrain_extent_left);
+terrain_extent_right = generate_chunk(terrain_extent_left, gen_flat);
 
 </string>
           </argument>
@@ -60,10 +59,11 @@ terrain_extent_right = generate_chunk(terrain_extent_left);
             <string>/// Chunk Generation
 
 if (view_xview[0] + view_wview[0] &gt;= terrain_extent_right) {
-    terrain_extent_right = generate_chunk(terrain_extent_right);
+    terrain_extent_right = generate_chunk(terrain_extent_right, gen_flat);
 }
+
 if (view_xview[0] &lt;= terrain_extent_left) {
-    terrain_extent_left = generate_chunk(terrain_extent_left, true);
+    terrain_extent_left = generate_chunk(terrain_extent_left, gen_flat, true);
 }
 </string>
           </argument>
