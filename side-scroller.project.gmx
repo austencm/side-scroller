@@ -7,6 +7,7 @@
     <extension index="0">extensions\RandomTerrainGeneratorByTP</extension>
     <extension index="1">extensions\Platformer Procedural Generation</extension>
     <extension index="2">extensions\Perlin Noise 1D</extension>
+    <extension index="3">extensions\Script Trace</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -22,11 +23,13 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Terrain Generation">
-      <script>scripts\generate_chunk.gml</script>
+      <script>scripts\generate_chunk_right.gml</script>
       <script>scripts\create_tile.gml</script>
       <scripts name="Generators">
+        <script>scripts\gen_block.gml</script>
         <script>scripts\gen_flat.gml</script>
         <script>scripts\gen_platforms.gml</script>
+        <script>scripts\gen_terra.gml</script>
       </scripts>
       <scripts name="Perlin Noise">
         <scripts name="1D">
@@ -45,6 +48,7 @@
       <script>scripts\rand_sign.gml</script>
       <script>scripts\view_center_x.gml</script>
       <script>scripts\view_center_y.gml</script>
+      <script>scripts\scr_trace.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -58,8 +62,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\init__keep_me_first</room>
-    <room>rooms\demo_movement</room>
     <room>rooms\demo_terrain</room>
+    <room>rooms\demo_movement</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

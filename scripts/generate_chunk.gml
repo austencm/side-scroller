@@ -19,4 +19,4 @@ for (var xx = 0; xx < global.CHUNK_WIDTH; xx += global.BLOCK_SIZE) {
         //xx = new_x;
 }
 
-return start_x + (xx * dir);
+terrain_extent_right = start_x + (xx * dir) + global.BLOCK_SIZE;

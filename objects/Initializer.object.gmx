@@ -28,8 +28,6 @@
             <string>/// Set global vars
 
 global.BLOCK_SIZE = 16;
-global.CHUNK_WIDTH = 1200;
-
 </string>
           </argument>
         </arguments>
