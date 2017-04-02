@@ -8,20 +8,38 @@
     <extension index="1">extensions\Platformer Procedural Generation</extension>
     <extension index="2">extensions\Perlin Noise 1D</extension>
     <extension index="3">extensions\Script Trace</extension>
+    <extension index="4">extensions\Essential Scripts</extension>
+    <extension index="5">extensions\Extended Functions</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_square</sprite>
     <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_player_rest_front</sprite>
     <sprite>sprites\spr_player_rest_side</sprite>
     <sprite>sprites\spr_player_run</sprite>
-    <sprite>sprites\spr_player_crouch</sprite>
+    <sprite>sprites\spr_player_duck</sprite>
     <sprite>sprites\spr_player_jump</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Entities">
+      <script>scripts\is_above_solid.gml</script>
+      <scripts name="Common">
+        <script>scripts\ent_update_pos.gml</script>
+        <script>scripts\ent_update_speed.gml</script>
+        <script>scripts\ent_update_sprite.gml</script>
+        <script>scripts\ent_handle_solid_collisions.gml</script>
+        <script>scripts\ent_enable_accel.gml</script>
+        <script>scripts\ent_enable_jump.gml</script>
+        <script>scripts\ent_enable_duck.gml</script>
+        <script>scripts\ent_jump.gml</script>
+        <script>scripts\ent_duck.gml</script>
+        <script>scripts\ent_unduck.gml</script>
+      </scripts>
+    </scripts>
     <scripts name="Terrain Generation">
       <script>scripts\generate_chunk_right.gml</script>
       <script>scripts\create_tile.gml</script>
@@ -46,9 +64,53 @@
     <scripts name="Utility">
       <script>scripts\array.gml</script>
       <script>scripts\rand_sign.gml</script>
-      <script>scripts\view_center_x.gml</script>
-      <script>scripts\view_center_y.gml</script>
-      <script>scripts\scr_trace.gml</script>
+      <script>scripts\log.gml</script>
+      <scripts name="Sprites">
+        <script>scripts\sprite.gml</script>
+        <script>scripts\sprite_get_index.gml</script>
+        <script>scripts\sprite_get_speed.gml</script>
+        <script>scripts\set_sprite.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="Vendor">
+      <scripts name="Essential Scripts">
+        <scripts name="Drawing">
+          <script>scripts\draw_text_outlined.gml</script>
+          <script>scripts\draw_text_shadow.gml</script>
+          <script>scripts\draw_text_shadow_ext.gml</script>
+          <script>scripts\draw_sprite_outlined.gml</script>
+          <script>scripts\draw_sprite_shadow.gml</script>
+        </scripts>
+        <scripts name="String Manipulation">
+          <script>scripts\string_split.gml</script>
+        </scripts>
+        <scripts name="Approach Value">
+          <script>scripts\approach.gml</script>
+          <script>scripts\angle_approach.gml</script>
+          <script>scripts\smooth_approach.gml</script>
+        </scripts>
+        <scripts name="Chance Functions">
+          <script>scripts\percent_chance.gml</script>
+          <script>scripts\round_chance.gml</script>
+          <script>scripts\set_chance.gml</script>
+          <script>scripts\multi_chance.gml</script>
+        </scripts>
+        <scripts name="List Functions">
+          <script>scripts\ds_list_reverse.gml</script>
+          <script>scripts\ds_list_random.gml</script>
+          <script>scripts\ds_list_delete_all.gml</script>
+        </scripts>
+        <scripts name="Instance Functions">
+          <script>scripts\instance_list_random.gml</script>
+          <script>scripts\instance_nearest_list.gml</script>
+        </scripts>
+        <scripts name="Misc">
+          <script>scripts\mouse_over.gml</script>
+          <script>scripts\stick_to.gml</script>
+          <script>scripts\stick_to_angle.gml</script>
+          <script>scripts\within.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -56,6 +118,8 @@
     <object>objects\Rendering</object>
     <object>objects\Terrain_Generator</object>
     <object>objects\Camera</object>
+    <object>objects\obj_entity</object>
+    <object>objects\obj_mobile</object>
     <object>objects\obj_player</object>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>
@@ -65,6 +129,13 @@
     <room>rooms\demo_terrain</room>
     <room>rooms\demo_movement</room>
   </rooms>
+  <constants number="5">
+    <constant name="BLOCK_SIZE">16</constant>
+    <constant name="BASE_GRAV">0.5</constant>
+    <constant name="DEBUG">true</constant>
+    <constant name="view_center_x">view_xview[0] + view_wview[0] / 2</constant>
+    <constant name="view_center_y">view_yview[0] + view_hview[0] / 2</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

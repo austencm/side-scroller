@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>/// Setup
 
-BLOCK_SIZE = global.BLOCK_SIZE; // Store this locally; we don't want to access globals more than is necessary
 blocks_to_gen = 75;
 
 // Keep track of the edges of the generated terrain so we know when to gen more
@@ -35,11 +34,11 @@ terrain_extent_left = 0;
 terrain_extent_right = 0;
 
 // Start the terrain level in the middle
-terrain_y_left = view_center_y();
-terrain_y_right = view_center_y();
+terrain_y_left = view_center_y;
+terrain_y_right = view_center_y;
  
 // Generate initial chunk
-terrain_extent_left = view_center_x() - blocks_to_gen / 2;
+terrain_extent_left = view_center_x - blocks_to_gen / 2;
 generate_chunk_right( gen_flat, array(blocks_to_gen) );
 
 </string>

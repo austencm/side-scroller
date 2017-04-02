@@ -1,4 +1,4 @@
-/// scr_trace(arguments)
+/// log( args... )
 /*
 ** Pass up to 16 arguments to this script 
 ** to show formatted debug message in 1 line
@@ -23,7 +23,7 @@ while (i < argument_count) {
     str += string(i + 1);
     str += ") ";
     str += string(argument[i]);
-    str += " ";
+    str += "  ";
     i++;
 };
 

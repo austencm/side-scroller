@@ -27,21 +27,21 @@ while (pos < room_width + len) {
     
     if (rand_roll < 1) {
         // choose random direction (up/down/neither) to gen next wall
-        random_add = choose(-global.BLOCK_SIZE, 0, global.BLOCK_SIZE);
+        random_add = choose(-BLOCK_SIZE, 0, BLOCK_SIZE);
         ypos += random_add;
         
         // then increase it by a random factor up to arg1/2
-        if (random_add > 0) ypos += floor(random_range(0, argument1)) * global.BLOCK_SIZE;
-        else ypos -= floor(random_range(0, argument2)) * global.BLOCK_SIZE;
+        if (random_add > 0) ypos += floor(random_range(0, argument1)) * BLOCK_SIZE;
+        else ypos -= floor(random_range(0, argument2)) * BLOCK_SIZE;
     
         rand_roll = floor(random_range(0, spacing));
     }
     else rand_roll--;
     
-    pos += global.BLOCK_SIZE; //add horizontal length
+    pos += BLOCK_SIZE; //add horizontal length
      
     instance_create(pos, ypos, obj_block); //Create wall
-    for (ypos2 = ypos + global.BLOCK_SIZE; ypos2 < ypos + argument3 * global.BLOCK_SIZE; ypos2 += global.BLOCK_SIZE)
+    for (ypos2 = ypos + BLOCK_SIZE; ypos2 < ypos + argument3 * BLOCK_SIZE; ypos2 += BLOCK_SIZE)
         instance_create(pos, ypos2, obj_block);
 }
 

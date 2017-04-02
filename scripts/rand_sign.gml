@@ -1,5 +1,5 @@
-// rand_sign( NUM )
-// Has a 50% chance to invert the sign of NUM
+// rand_sign( num )
+// Has a 50% chance to invert the sign of <num>
 
 
 var num = argument[0];

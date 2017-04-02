@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Set global vars
 
-global.BLOCK_SIZE = 16;
+
 </string>
           </argument>
         </arguments>
@@ -50,7 +50,6 @@ global.BLOCK_SIZE = 16;
             <kind>1</kind>
             <string>/// Setup
 
-debug = true;
 </string>
           </argument>
         </arguments>
@@ -89,12 +88,11 @@ debug = true;
             <kind>1</kind>
             <string>/// Debug
 
-if (debug == false)
+if (!DEBUG)
     return false;
 
-if keyboard_check_pressed(ord("R")) {
+if keyboard_check_pressed( ord('R') )
     room_restart();
-}
 </string>
           </argument>
         </arguments>
