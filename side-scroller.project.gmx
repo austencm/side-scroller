@@ -15,11 +15,21 @@
   <sprites name="sprites">
     <sprite>sprites\spr_square</sprite>
     <sprite>sprites\spr_block</sprite>
-    <sprite>sprites\spr_player_rest_front</sprite>
-    <sprite>sprites\spr_player_rest_side</sprite>
-    <sprite>sprites\spr_player_run</sprite>
-    <sprite>sprites\spr_player_duck</sprite>
-    <sprite>sprites\spr_player_jump</sprite>
+    <sprites name="old">
+      <sprite>sprites\spr_player_run</sprite>
+      <sprite>sprites\spr_player_rest_front</sprite>
+      <sprite>sprites\spr_player_jump</sprite>
+      <sprite>sprites\spr_player_duck</sprite>
+      <sprite>sprites\spr_player_rest_side</sprite>
+    </sprites>
+    <sprites name="player">
+      <sprites name="body">
+        <sprite>sprites\spr_player_body_idle</sprite>
+        <sprite>sprites\spr_player_body_jump</sprite>
+        <sprite>sprites\spr_player_body_duck</sprite>
+        <sprite>sprites\spr_player_body_run</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -119,7 +129,11 @@
     <object>objects\Camera</object>
     <object>objects\obj_entity</object>
     <object>objects\obj_mobile</object>
-    <object>objects\obj_player</object>
+    <objects name="player">
+      <object>objects\obj_player</object>
+      <object>objects\obj_player_arm_behind</object>
+      <object>objects\obj_player_arm_outer</object>
+    </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>
   </objects>
