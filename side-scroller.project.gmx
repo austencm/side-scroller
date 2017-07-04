@@ -14,7 +14,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_square</sprite>
-    <sprite>sprites\spr_dummy</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprite>sprites\spr_player_rest_front</sprite>
     <sprite>sprites\spr_player_rest_side</sprite>

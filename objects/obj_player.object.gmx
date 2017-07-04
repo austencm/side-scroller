@@ -29,10 +29,32 @@
 
 event_inherited(); // Run parent create event
 
+// Sprites
+spr_rest = array( 
+    sprite(),                               // arm outer
+    sprite(spr_player_rest_side, 0.07),     // middle body (head, torso, legs)
+    sprite()                                // arm behind
+    );                             
+spr_air = array(
+    sprite(),                               // arm outer
+    sprite(spr_player_jump, 0.2),           // middle body (head, torso, legs)
+    sprite()
+    );
+spr_move = array(
+    sprite(),
+    sprite(spr_player_run, 0.15),
+    sprite(),
+    );
+spr_crouch = array(
+    sprite(),
+    sprite(spr_player_duck, 0.07),
+    sprite(),
+    );
+
 // Abilities
 ent_enable_accel(0.1);
-ent_enable_jump( BASE_GRAV * 25, sprite(spr_player_jump, 0.2) );
-ent_enable_duck(2, sprite(spr_player_duck, 0.07) );
+ent_enable_jump( BASE_GRAV * 25, spr_jump );
+ent_enable_duck( 2,  );
 
 // Props
 hsp_base = 4;
@@ -41,10 +63,7 @@ hsp_max = 7;
 // Flags
 
 
-// Sprites
-spr_rest = sprite(spr_player_rest_side, 0.07);
-spr_air = sprite(spr_player_jump, 0.2);
-spr_move = sprite(spr_player_run, 0.15);
+
 </string>
           </argument>
         </arguments>
