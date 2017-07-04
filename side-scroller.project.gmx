@@ -10,6 +10,7 @@
     <extension index="3">extensions\Script Trace</extension>
     <extension index="4">extensions\Essential Scripts</extension>
     <extension index="5">extensions\Extended Functions</extension>
+    <extension index="6">extensions\Pixel Perfect Camera</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
