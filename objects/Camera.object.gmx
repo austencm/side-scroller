@@ -2,12 +2,49 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///ZOOM AND SHIT, FUCK!!!!
+
+// views
+w = 1366;
+h = 768;
+
+view_wview[0] = w;
+view_hview[0] = h;
+view_wport[0] = w;
+view_hport[0] = h;
+surface_resize(application_surface, w, h);
+display_reset(0, true);
+
+view_wview[0] = view_wview[0] / 2;
+view_hview[0] = view_hview[0] / 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -27,6 +64,33 @@
             <kind>1</kind>
             <string>/// Camera Movement
 
+camera_x = obj_player.x - view_wview[0] / 2;
+camera_y = obj_player.y - view_hview[0] / 2;
+
+view_wview[0] = w;
+view_hview[0] = h;
+view_wport[0] = w;
+view_hport[0] = h;
+
+view_xview[0] = camera_x;
+view_yview[0] = camera_y;
+
+// fullscreen
+if mouse_check_button_pressed(mb_left)
+{
+    surface_resize(application_surface, w, h);
+    display_reset(0, true);
+    if window_get_fullscreen()
+    {
+        window_set_fullscreen(false);
+    }
+    else
+    {
+        window_set_fullscreen(true);
+    }
+}
+
+
 /*
 camera_x = mean(obj_player.x, obj_player.x, obj_player.x, obj_player.x, mouse_x);
 camera_y = mean(obj_player.y, obj_player.y, obj_player.y, obj_player.y, mouse_y);
@@ -37,15 +101,10 @@ y = lerp(y, camera_y, 0.1);
 view_xview[0] = x - view_wview[0] / 2;
 view_yview[0] = y - view_hview[0] / 2;
 */
-
-view_xview[0] = obj_player.x - view_wview[0] / 2;
-view_yview[0] = obj_player.y - view_hview[0] / 2;
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -62,12 +121,59 @@ view_yview[0] = obj_player.y - view_hview[0] / 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw FPS
+            <string>///smooth camera movement
+TWEAN = 0.1;
+
+if (instance_exists(obj_player))
+{   
+    view_xview += round(((obj_player.x - (view_wview[0] / 2)) - view_xview[0]) * TWEAN);
+    view_yview += round(((obj_player.y - (view_hview[0] / 2)) - view_yview[0]) * TWEAN);
+}
+else
+{
+    x = view_xview + (view_wview / 2);
+    y = view_yview + (view_hview / 2);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw debug info
 
 
 draw_set_colour(c_white);
-draw_text(view_xview[0]+15,view_yview[0]+10,"FPS: " + string(fps));
-draw_set_colour(c_black);
+draw_set_font(font_debug);
+debug_text = array(
+    "FPS: " + string(fps),
+    "X: " + string(obj_player.x) + "  Y: " + string(obj_player.y),
+    "view_wport: " + string(view_wport[0]) + "  view_hport: " + string(view_hport[0]),
+    "",
+    "Left Click for Fullscreen",
+    "Right Click to Teleport",
+    "Press R to Restart",
+    )
+    
+for (var i = 0; i &lt; array_length_1d(debug_text); i++) {
+    draw_text(10, i * 20 + 10, debug_text[i]);
+}
 </string>
           </argument>
         </arguments>
