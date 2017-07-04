@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>22</bbox_left>
-  <bbox_right>42</bbox_right>
-  <bbox_top>19</bbox_top>
-  <bbox_bottom>79</bbox_bottom>
+  <bbox_left>20</bbox_left>
+  <bbox_right>41</bbox_right>
+  <bbox_top>25</bbox_top>
+  <bbox_bottom>56</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -21,6 +21,5 @@
   <height>80</height>
   <frames>
     <frame index="0">images\spr_player_body_duck_0.png</frame>
-    <frame index="1">images\spr_player_body_duck_1.png</frame>
   </frames>
 </sprite>

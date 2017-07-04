@@ -15,19 +15,26 @@
   <sprites name="sprites">
     <sprite>sprites\spr_square</sprite>
     <sprite>sprites\spr_block</sprite>
-    <sprites name="old">
-      <sprite>sprites\spr_player_run</sprite>
-      <sprite>sprites\spr_player_rest_front</sprite>
-      <sprite>sprites\spr_player_jump</sprite>
-      <sprite>sprites\spr_player_duck</sprite>
-      <sprite>sprites\spr_player_rest_side</sprite>
-    </sprites>
     <sprites name="player">
-      <sprites name="body">
+      <sprites name="idle">
         <sprite>sprites\spr_player_body_idle</sprite>
-        <sprite>sprites\spr_player_body_jump</sprite>
-        <sprite>sprites\spr_player_body_duck</sprite>
+        <sprite>sprites\spr_player_idle_OUT</sprite>
+        <sprite>sprites\spr_player_idle_IN</sprite>
+      </sprites>
+      <sprites name="run">
         <sprite>sprites\spr_player_body_run</sprite>
+        <sprite>sprites\spr_player_run_OUT</sprite>
+        <sprite>sprites\spr_player_run_IN</sprite>
+      </sprites>
+      <sprites name="jump">
+        <sprite>sprites\spr_player_body_jump</sprite>
+        <sprite>sprites\spr_player_jump_OUT</sprite>
+        <sprite>sprites\spr_player_jump_IN</sprite>
+      </sprites>
+      <sprites name="duck">
+        <sprite>sprites\spr_player_body_duck</sprite>
+        <sprite>sprites\spr_player_duck_OUT</sprite>
+        <sprite>sprites\spr_player_duck_IN</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -121,6 +128,7 @@
         </scripts>
       </scripts>
     </scripts>
+    <script>scripts\scr_init_game.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_debug</font>
