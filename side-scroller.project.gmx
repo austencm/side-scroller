@@ -14,6 +14,7 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\spr_square</sprite>
+    <sprite>sprites\spr_rectangle</sprite>
     <sprite>sprites\spr_block</sprite>
     <sprites name="player">
       <sprites name="idle">
@@ -142,8 +143,8 @@
     <object>objects\obj_mobile</object>
     <objects name="player">
       <object>objects\obj_player</object>
-      <object>objects\obj_player_arm_behind</object>
-      <object>objects\obj_player_arm_outer</object>
+      <object>objects\obj_player_arm_IN</object>
+      <object>objects\obj_player_arm_OUT</object>
     </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>

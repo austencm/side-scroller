@@ -8,11 +8,14 @@ if (h_move_dir != 0)
     image_xscale = h_move_dir; // Face sprite in direction of movement
 
 if ( is_above_solid() ) {      // Am I on a solid?
+
     if (h_move_dir != 0) {     // Am I trying to move?
-        if (can_duck && ducking)
-            set_sprite(spr_duck);
-        else
+        if (can_duck && ducking) {
+            set_sprite(spr_duck);    // Duck, Duck
+        }
+        else {
             set_sprite(spr_move);
+        }
     }
     else {
         set_sprite(spr_rest);

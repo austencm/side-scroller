@@ -30,10 +30,10 @@
 event_inherited(); // Run parent create event
 
 // Sprites
-spr_rest = sprite(spr_player_body_idle, 0.07);                          
-spr_air = sprite(spr_player_body_jump, 0.2);
+spr_rest = sprite(spr_player_body_idle, 0.05);                          
+spr_air = sprite(spr_player_body_jump, 0.5);
 spr_move = sprite(spr_player_body_run, 0.15);
-spr_duck = sprite(spr_player_body_duck, 0.07);
+spr_duck = sprite(spr_player_body_duck, 0.2);
 
 // Abilities
 ent_enable_accel(0.1);
@@ -72,12 +72,14 @@ hsp_max = 7;
             <kind>1</kind>
             <string>/// Input capture
 
-input_right = keyboard_check( ord('D') );
-input_left = keyboard_check( ord('A') );
-input_up = keyboard_check( ord('W') );
-input_down_start = keyboard_check_pressed( ord('S') );
-input_down_stop = keyboard_check_released( ord('S') );
+input_right = keyboard_check( ord('D') ) || keyboard_check( vk_right );
+input_left = keyboard_check( ord('A') ) || keyboard_check( vk_left );
+input_up = keyboard_check( ord('W') ) || keyboard_check( vk_up );
+input_down_start = keyboard_check_pressed( ord('S') ) || keyboard_check_pressed( vk_down );
+input_down_stop = keyboard_check_released( ord('S') ) || keyboard_check_released( vk_down );
+
 input_jump = keyboard_check_pressed(vk_space);
+
 input_attack = mouse_check_button_pressed(mb_left);
 input_dash = mouse_check_button_pressed(mb_right);
 
@@ -106,8 +108,9 @@ input_dash = mouse_check_button_pressed(mb_right);
 h_move_dir = -input_left + input_right; // Will be 1, 0 or -1
 
 // Duck
-if (input_down_start)
+if (input_down_start) {
     ent_duck();
+}
 else if (input_down_stop)
     ent_unduck();
 
@@ -124,6 +127,45 @@ if (input_dash) {
 
 ent_update_speed();
 ent_handle_solid_collisions();
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// debug BBox and stuff
+
+// DOESN'T FING WORK FUCK
+
+/*
+
+draw_set_alpha(0.3);
+draw_rectangle_colour(
+    bbox_left - x + view_wview[0], 
+    bbox_top - y + view_hview[0],
+    bbox_right - x + view_wview[0],
+    bbox_bottom - y + view_hview[0],
+    c_red, c_red, c_red, c_red, false);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

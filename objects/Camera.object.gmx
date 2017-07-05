@@ -146,12 +146,12 @@ draw_set_font(font_debug);
 debug_text = array(
     "FPS: " + string(fps),
     "X: " + string(obj_player.x) + "  Y: " + string(obj_player.y),
-    "view_wport: " + string(view_wport[0]) + "  view_hport: " + string(view_hport[0]),
     "",
     "Left Click for Fullscreen",
     "Right Click to Teleport",
+    "",
     "Press R to Restart",
-    )
+    "")
     
 for (var i = 0; i &lt; array_length_1d(debug_text); i++) {
     draw_text(10, i * 20 + 10, debug_text[i]);
