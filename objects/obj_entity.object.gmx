@@ -37,18 +37,24 @@ h_move_dir = 0; // 1, 0 or -1
 
 vsp = 0;
 grav = BASE_GRAV;
-vsp_max = 15;
+vsp_max = 20;
 
 // Flags
 can_accel = false;
 can_jump = false;
+can_fly = false;
 can_duck = false;
+can_hop = false;
 
 // Sprites
 spr_rest = sprite(spr_square);
 spr_air = sprite(spr_square);
 spr_move = sprite(spr_square);
-spr_move_air = sprite(spr_square);
+spr_duck = sprite(spr_square);
+spr_fly = sprite(spr_square);
+
+
+
 </string>
           </argument>
         </arguments>

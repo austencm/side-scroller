@@ -21,10 +21,16 @@ if ( is_above_solid() ) {      // Am I on a solid?
         set_sprite(spr_rest);
     }
 }
-else if (can_jump && jumping)  // Am I in the air following a jump?
-    set_sprite(spr_jump);
-else                           // Otherwise I'm falling
-    set_sprite(spr_air);
+else {// Am I in the air?
+    
+    if (can_jump && jumping)        // Am I in the air following a jump?
+        set_sprite(spr_jump);
+    else if (can_fly && flying)     // Am I flying after a jump?
+        set_sprite(spr_fly);
+    else {                          // Otherwise I'm falling
+        set_sprite(spr_air);
+    }
+}
 
 // If the updated sprite has a lower bounding box, it can get us stuck in the ground
 // TODO: test this more and maybe put it somewhere else  

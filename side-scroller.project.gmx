@@ -50,11 +50,14 @@
         <script>scripts\ent_update_sprite.gml</script>
         <script>scripts\ent_handle_solid_collisions.gml</script>
         <script>scripts\ent_enable_accel.gml</script>
-        <script>scripts\ent_enable_jump.gml</script>
         <script>scripts\ent_enable_duck.gml</script>
-        <script>scripts\ent_jump.gml</script>
+        <script>scripts\ent_enable_hop.gml</script>
+        <script>scripts\ent_enable_jump.gml</script>
+        <script>scripts\ent_enable_fly.gml</script>
         <script>scripts\ent_duck.gml</script>
         <script>scripts\ent_unduck.gml</script>
+        <script>scripts\ent_hop.gml</script>
+        <script>scripts\ent_jump.gml</script>
       </scripts>
     </scripts>
     <scripts name="Terrain Generation">
@@ -156,7 +159,7 @@
   </rooms>
   <constants number="5">
     <constant name="BLOCK_SIZE">16</constant>
-    <constant name="BASE_GRAV">0.5</constant>
+    <constant name="BASE_GRAV">0.7</constant>
     <constant name="DEBUG">true</constant>
     <constant name="view_center_x">view_xview[0] + view_wview[0] / 2</constant>
     <constant name="view_center_y">view_yview[0] + view_hview[0] / 2</constant>

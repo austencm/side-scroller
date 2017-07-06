@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_entity</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,23 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize
-
+/*
 event_inherited(); // Run parent create event
 
 // Sprites
-spr_rest = sprite(spr_player_rest_side, 0.07);  // middle body (head, torso, legs)                           
-spr_air = sprite(spr_player_jump, 0.2);         // middle body (head, torso, legs)
-spr_move = sprite(spr_player_run, 0.15);
-spr_duck = sprite(spr_player_duck, 0.07);
+spr_rest = sprite(spr_player_idle_IN, 0.07);  // middle body (head, torso, legs)                           
+spr_air = sprite(spr_player_jump_IN, 0.2);         // middle body (head, torso, legs)
+spr_move = sprite(spr_player_run_IN, 0.15);
+spr_duck = sprite(spr_player_duck_IN, 0.07);
 
 // Abilities
-ent_enable_accel(0.1);
-ent_enable_jump( BASE_GRAV * 25, spr_air );
-ent_enable_duck( 2, spr_duck );
+ent_enable_accel(0);
+ent_enable_jump( 0, spr_air );
+ent_enable_duck( 0, spr_duck );
 
 // Props
-hsp_base = 4;
-hsp_max = 7;
+hsp_base = 0;
+hsp_max = 0;
 
 // Flags
 
@@ -72,12 +72,14 @@ hsp_max = 7;
             <kind>1</kind>
             <string>/// Input capture
 
-input_right = keyboard_check( ord('D') );
-input_left = keyboard_check( ord('A') );
-input_up = keyboard_check( ord('W') );
-input_down_start = keyboard_check_pressed( ord('S') );
-input_down_stop = keyboard_check_released( ord('S') );
+input_right = keyboard_check( ord('D') ) || keyboard_check( vk_right );
+input_left = keyboard_check( ord('A') ) || keyboard_check( vk_left );
+input_up = keyboard_check( ord('W') ) || keyboard_check( vk_up );
+input_down_start = keyboard_check_pressed( ord('S') ) || keyboard_check_pressed( vk_down );
+input_down_stop = keyboard_check_released( ord('S') ) || keyboard_check_released( vk_down );
+
 input_jump = keyboard_check_pressed(vk_space);
+
 input_attack = mouse_check_button_pressed(mb_left);
 input_dash = mouse_check_button_pressed(mb_right);
 
@@ -102,6 +104,7 @@ input_dash = mouse_check_button_pressed(mb_right);
           <argument>
             <kind>1</kind>
             <string>/// Motion
+/*
 
 h_move_dir = -input_left + input_right; // Will be 1, 0 or -1
 
@@ -124,6 +127,35 @@ if (input_dash) {
 
 ent_update_speed();
 ent_handle_solid_collisions();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///follow player
+
+if instance_exists(obj_player &amp;&amp; 
+    obj_player.xprevious != obj_player.x &amp;&amp; 
+    obj_player.yprevious != obj_player.y) {
+    
+    x = obj_player.x;
+    y = obj_player.y;
+}
 </string>
           </argument>
         </arguments>

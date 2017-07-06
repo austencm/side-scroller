@@ -23,3 +23,7 @@ vsp = clamp(vsp, -vsp_max, vsp_max); // Clamp vertical speed
 // Turn off jump flag when we hit the ground
 if ( can_jump && is_above_solid() )
     jumping = false;
+
+// Turn off the flying flag when we hit the ground
+if ( can_fly && is_above_solid() )
+    flying = false;

@@ -38,9 +38,9 @@ view_hport[0] = h;
 surface_resize(application_surface, w, h);
 display_reset(0, true);
 
-
-view_wview[0] = view_wview[0] / 2;
-view_hview[0] = view_hview[0] / 2;
+// set zoom level of x1
+// set zoom variable
+zoomed = false;
 </string>
           </argument>
         </arguments>
@@ -68,8 +68,6 @@ view_hview[0] = view_hview[0] / 2;
 // fullscreen
 if mouse_check_button_pressed(mb_left)
 {
-    surface_resize(application_surface, w, h);
-    display_reset(0, true);
     if window_get_fullscreen()
     {
         window_set_fullscreen(false);
@@ -78,9 +76,26 @@ if mouse_check_button_pressed(mb_left)
     {
         window_set_fullscreen(true);
     }
+    surface_resize(application_surface, w, h);
+    display_reset(0, true);
 }
 
-
+// zoom level
+// if you want zoomed to x1...
+if keyboard_check_pressed( ord('Z') ) &amp;&amp; zoomed {
+    // set zoom level of x1
+    view_wview[0] = view_wview[0] * 2;
+    view_hview[0] = view_hview[0] * 2;
+    zoomed = false;
+    
+} // else if you want zoomed to x2...
+else if keyboard_check_pressed( ord('Z') ) &amp;&amp; !zoomed {
+    // set zoom level of x2
+    view_wview[0] = view_wview[0] / 2;
+    view_hview[0] = view_hview[0] / 2;
+    zoomed = true;
+}
+    
 
 
 
@@ -146,11 +161,15 @@ draw_set_font(font_debug);
 debug_text = array(
     "FPS: " + string(fps),
     "X: " + string(obj_player.x) + "  Y: " + string(obj_player.y),
+    "Zoom: " + string(zoomed + 1) + "x",
     "",
     "Left Click for Fullscreen",
     "Right Click to Teleport",
     "",
-    "Press R to Restart",
+    "WASD or ARROWS to Move",
+    "SPACE to Jump",
+    "R to Restart",
+    "Z to Zoom",
     "")
     
 for (var i = 0; i &lt; array_length_1d(debug_text); i++) {
