@@ -43,7 +43,7 @@ ent_enable_accel(0.1);
 ent_enable_duck( 2, spr_duck );
 ent_enable_jump( 15, spr_jump );
 ent_enable_hop(.15);
-//ent_enable_fly( spr_fly );
+ent_enable_fly( spr_fly );
 
 // Props
 hsp_base = 3;
@@ -75,11 +75,32 @@ hsp_max = 7;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Toggles init
+emit = false;
+can_fly = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///PARTICLES
 
 //CREATE EVENT
-
-emit = false;
 
 // system
 global.P_System=part_system_create();
@@ -155,6 +176,33 @@ input_dash = mouse_check_button_pressed(mb_right);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Toggles
+
+if keyboard_check_pressed( ord('P') )
+    emit = !emit;
+    
+if keyboard_check_pressed( ord('F') )
+    can_fly = !can_fly;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Motion
 
 h_move_dir = -input_left + input_right; // Will be 1, 0 or -1
@@ -208,9 +256,6 @@ ent_handle_solid_collisions();
           <argument>
             <kind>1</kind>
             <string>///HOLY SH1T PARTICLZZZ!!!1!!!!
-
-if keyboard_check_pressed( ord('P') )
-    emit = !emit;
 if emit
     part_particles_create(global.P_System, x, y, global.Particle1, 1);
 </string>

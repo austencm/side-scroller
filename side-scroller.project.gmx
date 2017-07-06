@@ -56,8 +56,8 @@
         <script>scripts\ent_enable_fly.gml</script>
         <script>scripts\ent_duck.gml</script>
         <script>scripts\ent_unduck.gml</script>
-        <script>scripts\ent_fall.gml</script>
         <script>scripts\ent_jump.gml</script>
+        <script>scripts\ent_fall.gml</script>
       </scripts>
     </scripts>
     <scripts name="Terrain Generation">

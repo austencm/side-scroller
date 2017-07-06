@@ -158,16 +158,23 @@ view_yview[0] = y - view_hview[0] / 2;
 
 draw_set_colour(c_white);
 draw_set_font(font_debug);
+
+if obj_player.can_fly
+    fly_txt = "true";
+else fly_text = "false";
+
 debug_text = array(
     "FPS: " + string(fps),
     "X: " + string(obj_player.x) + "  Y: " + string(obj_player.y),
     "Zoom: " + string(zoomed + 1) + "x",
+    "Fly: " + string(obj_player.can_fly),
     "",
     "Left Click for Fullscreen",
     "Right Click to Teleport",
     "",
     "WASD or ARROWS to Move",
     "SPACE to Jump",
+    "F to Fly",
     "",
     "R to Restart",
     "Z to Zoom",
