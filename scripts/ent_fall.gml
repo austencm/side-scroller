@@ -3,5 +3,4 @@
 
 if (can_hop && vsp < 0) {
     vsp += jump_speed * hop_factor;
-    hopping = true;
 }

@@ -23,12 +23,12 @@ if ( is_above_solid() ) {      // Am I on a solid?
 }
 else {// Am I in the air?
     
-    if (can_jump && jumping)        // Am I in the air following a jump?
+    if (can_jump && jumping && !falling)    // Am I in the air following a jump?
         set_sprite(spr_jump);
-    else if (can_fly && flying)     // Am I flying after a jump?
+    else if (can_fly && flying)             // Am I flying after a jump?
         set_sprite(spr_fly);
-    else {                          // Otherwise I'm falling
-        set_sprite(spr_air);
+    else {                                  // Otherwise I'm falling
+        set_sprite(spr_fall);
     }
 }
 

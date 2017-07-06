@@ -168,8 +168,10 @@ debug_text = array(
     "",
     "WASD or ARROWS to Move",
     "SPACE to Jump",
+    "",
     "R to Restart",
     "Z to Zoom",
+    "P for Particles",
     "")
     
 for (var i = 0; i &lt; array_length_1d(debug_text); i++) {

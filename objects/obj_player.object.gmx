@@ -30,27 +30,75 @@
 event_inherited(); // Run parent create event
 
 // Sprites
-spr_rest = sprite(spr_player_body_idle, 0.05);                          
-spr_air = sprite(spr_player_body_jump, 0.3);
-spr_move = sprite(spr_player_body_run, 0.15);
+spr_rest = sprite(spr_player_body_idle, 0.05);
 spr_duck = sprite(spr_player_body_duck, 0.2);
+spr_move = sprite(spr_player_body_run, 0.2);
+                          
+spr_jump = sprite(spr_player_body_jump, 0.2);
 spr_fly = sprite(spr_player_body_jump, 0.6);
+spr_fall = sprite(spr_player_body_jump, 0.5);
 
 // Abilities
 ent_enable_accel(0.1);
-ent_enable_jump( 15, spr_air );
-ent_enable_hop(.3);
 ent_enable_duck( 2, spr_duck );
+ent_enable_jump( 15, spr_jump );
+ent_enable_hop(.15);
 //ent_enable_fly( spr_fly );
 
 // Props
-hsp_base = 4;
+hsp_base = 3;
 hsp_max = 7;
 
 // Flags
 
 
 
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///PARTICLES
+
+//CREATE EVENT
+
+emit = false;
+
+// system
+global.P_System=part_system_create();
+
+// particles
+global.Particle1=part_type_create();
+part_type_shape(global.Particle1,pt_shape_pixel);            //This defines the particles shape
+part_type_size(global.Particle1,1,1,0,2);                    //This is for the size
+part_type_scale(global.Particle1,1,1);                       //This is for scaling
+part_type_color1(global.Particle1,c_white);                  //This sets its colour. There are three different codes for this
+part_type_alpha1(global.Particle1,1);                        //This is its alpha. There are three different codes for this
+part_type_speed(global.Particle1,0.50,2,-0.10,0);            //The particles speed
+part_type_direction(global.Particle1,0,359,0,20);            //The direction
+part_type_orientation(global.Particle1,0,0,0,0,1);           //This changes the rotation of the particle
+part_type_blend(global.Particle1,1);                         //This is the blend mode, either additive or normal
+part_type_life(global.Particle1,1,150);                       //this is its lifespan in steps
+
+//Define and name the emitters
+global.Particle1_Emitter1=part_emitter_create(global.P_System);
 </string>
           </argument>
         </arguments>
@@ -121,9 +169,10 @@ else if (input_down_stop)
 // Jump or Fly
 if (input_jump) {
     ent_jump();
-}
+} 
+// Short-hop fast fall
 if (!input_jump_hold) {
-    ent_hop();
+    ent_fall();
 }
 
 // Dash
@@ -138,6 +187,32 @@ ent_handle_solid_collisions();
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///HOLY SH1T PARTICLZZZ!!!1!!!!
+
+if keyboard_check_pressed( ord('P') )
+    emit = !emit;
+if emit
+    part_particles_create(global.P_System, x, y, global.Particle1, 1);
 </string>
           </argument>
         </arguments>

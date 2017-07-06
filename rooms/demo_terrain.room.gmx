@@ -16,7 +16,7 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1000</w>
+    <w>992</w>
     <h>600</h>
     <showGrid>-1</showGrid>
     <showObjects>-1</showObjects>
@@ -26,7 +26,7 @@
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
+    <page>4</page>
     <xoffset>142</xoffset>
     <yoffset>76</yoffset>
   </makerSettings>
@@ -55,7 +55,6 @@
     <instance objName="Terrain_Generator" x="24" y="0" name="inst_63B51AC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Camera" x="48" y="0" name="inst_6252BC2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_player" x="480" y="288" name="inst_B5F78699" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player_arm_OUT" x="424" y="296" name="inst_D24BD42D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

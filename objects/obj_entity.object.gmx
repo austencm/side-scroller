@@ -46,12 +46,16 @@ can_fly = false;
 can_duck = false;
 can_hop = false;
 
+falling = false;
+
 // Sprites
 spr_rest = sprite(spr_square);
-spr_air = sprite(spr_square);
-spr_move = sprite(spr_square);
 spr_duck = sprite(spr_square);
+spr_move = sprite(spr_square);
+                          
+spr_jump = sprite(spr_square);
 spr_fly = sprite(spr_square);
+spr_fall = sprite(spr_square);
 
 
 

@@ -56,7 +56,7 @@
         <script>scripts\ent_enable_fly.gml</script>
         <script>scripts\ent_duck.gml</script>
         <script>scripts\ent_unduck.gml</script>
-        <script>scripts\ent_hop.gml</script>
+        <script>scripts\ent_fall.gml</script>
         <script>scripts\ent_jump.gml</script>
       </scripts>
     </scripts>
@@ -143,11 +143,8 @@
     <object>objects\Terrain_Generator</object>
     <object>objects\Camera</object>
     <object>objects\obj_entity</object>
-    <object>objects\obj_mobile</object>
     <objects name="player">
       <object>objects\obj_player</object>
-      <object>objects\obj_player_arm_IN</object>
-      <object>objects\obj_player_arm_OUT</object>
     </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>
@@ -159,7 +156,7 @@
   </rooms>
   <constants number="5">
     <constant name="BLOCK_SIZE">16</constant>
-    <constant name="BASE_GRAV">0.7</constant>
+    <constant name="BASE_GRAV">0.6</constant>
     <constant name="DEBUG">true</constant>
     <constant name="view_center_x">view_xview[0] + view_wview[0] / 2</constant>
     <constant name="view_center_y">view_yview[0] + view_hview[0] / 2</constant>
