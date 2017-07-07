@@ -29,8 +29,8 @@
 
 hsp = 0;
 hsp_base = 3;
-ani_speed_base = 0.15;
-ani_speed_factor = 0.01;
+ani_speed_base = 0.1;
+ani_speed_factor = 0.015;
 // TODO: allow hsp in air to differ from hsp when running
 // TODO: prevent acceleration in air?
 // hsp_air = hsp_base;

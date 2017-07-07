@@ -58,7 +58,7 @@ sprites_update();
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -75,23 +75,19 @@ sprites_update();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Follow player body
+            <string>/// Follow player body &amp; update sprite
 
 if instance_exists(obj_player1_body) {
     player = obj_player1_body;
     
-    x = player.x + player.hsp;
-    y = player.y + player.vsp;
+    x = player.x;
+    y = player.y;
     
     // match sprite of arm to sprite of body without using position update fn's
-    p_sprite = player.sprites[player.sprite_current];
-    
     sprite_set_by_number( player.sprite_current );
     
     image_xscale = player.image_xscale;
-    
-    if (player.sprite_current == 2)
-        image_speed = p_sprite[1];
+    image_index = player.image_index;
 }
 </string>
           </argument>
