@@ -53,7 +53,7 @@
   <instances>
     <instance objName="Rendering" x="48" y="0" name="inst_2114217E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Camera" x="24" y="0" name="inst_421C6345" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_player" x="56" y="312" name="inst_F464C2FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_player1" x="56" y="312" name="inst_F464C2FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="16" y="360" name="inst_A778935C" locked="0" code="" scaleX="10" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="120" y="288" name="inst_2B099F04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_block" x="176" y="224" name="inst_2066B631" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

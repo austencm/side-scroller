@@ -90,6 +90,8 @@
         <script>scripts\sprite_get_index.gml</script>
         <script>scripts\sprite_get_speed.gml</script>
         <script>scripts\set_sprite.gml</script>
+        <script>scripts\sprites_update.gml</script>
+        <script>scripts\sprite_set_by_number.gml</script>
       </scripts>
     </scripts>
     <scripts name="Vendor">
@@ -144,7 +146,11 @@
     <object>objects\Camera</object>
     <object>objects\obj_entity</object>
     <objects name="player">
-      <object>objects\obj_player</object>
+      <objects name="player1">
+        <object>objects\obj_player1</object>
+        <object>objects\obj_player1_body</object>
+        <object>objects\obj_player1_OUT</object>
+      </objects>
     </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>

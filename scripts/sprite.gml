@@ -4,8 +4,11 @@
 
 var spr_index, spr_speed;
 
-spr_index = argument[0];
+spr_index = spr_square;
 spr_speed = 0;
+
+if (argument_count)
+    spr_index = argument[0];
 if (argument_count > 1)
     spr_speed = argument[1];
 
