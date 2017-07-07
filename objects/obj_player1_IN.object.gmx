@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize
 
-depth = 2;
+depth = -2;
 
 // Sprites
 player_set_animation_speeds();
