@@ -172,7 +172,7 @@ if (draw) {
         "FPS: " + string(fps),
         "X: " + string(player.x) + "  Y: " + string(player.y),
         "hsp: " + string(player.hsp) + "  vsp: " + string(player.vsp),
-        "Zoom: " + string(zoomed + 1) + "x",
+        "Zoom: " + string(zoomed),
         "Fly: " + string(player.can_fly),
         "",
         "Left Click for Fullscreen",
