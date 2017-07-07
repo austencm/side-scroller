@@ -88,15 +88,15 @@ if mouse_check_button_pressed(mb_left)
 // if you want zoomed to x1...
 if keyboard_check_pressed( ord('Z') ) &amp;&amp; zoomed {
     // set zoom level of x1
-    view_wview[0] = view_wview[0] * 2;
-    view_hview[0] = view_hview[0] * 2;
+    view_wview[0] = view_wview[0] * 4;
+    view_hview[0] = view_hview[0] * 4;
     zoomed = false;
     
 } // else if you want zoomed to x2...
 else if keyboard_check_pressed( ord('Z') ) &amp;&amp; !zoomed {
     // set zoom level of x2
-    view_wview[0] = view_wview[0] / 2;
-    view_hview[0] = view_hview[0] / 2;
+    view_wview[0] = view_wview[0] / 4;
+    view_hview[0] = view_hview[0] / 4;
     zoomed = true;
 }
     

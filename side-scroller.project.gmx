@@ -59,6 +59,9 @@
         <script>scripts\ent_jump.gml</script>
         <script>scripts\ent_fall.gml</script>
       </scripts>
+      <scripts name="Player">
+        <script>scripts\player_set_animation_speeds.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Terrain Generation">
       <script>scripts\generate_chunk_right.gml</script>
@@ -147,9 +150,10 @@
     <object>objects\obj_entity</object>
     <objects name="player">
       <objects name="player1">
-        <object>objects\obj_player1</object>
         <object>objects\obj_player1_body</object>
+        <object>objects\obj_player1_component</object>
         <object>objects\obj_player1_OUT</object>
+        <object>objects\obj_player1_IN</object>
       </objects>
     </objects>
     <object>objects\obj_block</object>
@@ -157,8 +161,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\init__keep_me_first</room>
-    <room>rooms\demo_terrain</room>
     <room>rooms\demo_movement</room>
+    <room>rooms\demo_terrain</room>
   </rooms>
   <constants number="5">
     <constant name="BLOCK_SIZE">16</constant>

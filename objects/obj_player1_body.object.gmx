@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_player1</parentName>
+  <parentName>obj_entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,17 +29,33 @@
 
 event_inherited(); // Run parent create event
 
+depth = 0;
+
 // Sprites
+player_set_animation_speeds();
 
+spr_rest = sprite(spr_player_body_idle, rest_speed);
+spr_duck = sprite(spr_player_body_duck, duck_speed);
+spr_move = sprite(spr_player_body_run, move_speed);
+                          
+spr_jump = sprite(spr_player_body_jump, jump_speed);
+spr_fly = sprite(spr_player_body_jump, fly_speed);
+spr_fall = sprite(spr_player_body_jump, fall_speed);
 
-// Abilities
-
+sprites_update();
 
 // Props
+hsp_base = 3;
+hsp_max = 8;
 
+// Abilities
+ent_enable_accel(0.1);
+ent_enable_duck( hsp_base, spr_duck );
+ent_enable_jump( 15, spr_jump );
+ent_enable_hop(.15);
+ent_enable_fly( spr_fly );
 
 // Flags
-
 
 
 
@@ -65,7 +81,7 @@ event_inherited(); // Run parent create event
           <argument>
             <kind>1</kind>
             <string>///Toggles init
-
+can_fly = true;
 emit = false;
 </string>
           </argument>
@@ -131,9 +147,74 @@ global.Particle1_Emitter1=part_emitter_create(global.P_System);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///inherit
+            <string>/// Input capture
 
-event_inherited();
+input_right = keyboard_check( ord('D') ) || keyboard_check( vk_right );
+input_left = keyboard_check( ord('A') ) || keyboard_check( vk_left );
+input_up = keyboard_check( ord('W') ) || keyboard_check( vk_up );
+input_down_start = keyboard_check_pressed( ord('S') ) || keyboard_check_pressed( vk_down );
+input_down_stop = keyboard_check_released( ord('S') ) || keyboard_check_released( vk_down );
+
+input_jump = keyboard_check_pressed(vk_space);
+input_jump_hold = keyboard_check(vk_space);
+
+input_attack = mouse_check_button_pressed(mb_left);
+input_dash = mouse_check_button_pressed(mb_right);
+
+if keyboard_check_pressed( ord('F') )
+    can_fly = !can_fly;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Motion
+
+h_move_dir = -input_left + input_right; // Will be 1, 0 or -1
+
+// Duck
+if (input_down_start) {
+    ent_duck();
+}
+else if (input_down_stop)
+    ent_unduck();
+
+// Jump or Fly
+if (input_jump) {
+    ent_jump();
+} 
+// Short-hop fast fall
+if (!input_jump_hold) {
+    ent_fall();
+}
+
+// Dash
+// TODO: make this into an ability and not shitty
+if (input_dash) {
+    x = mouse_x;
+    y = mouse_y;
+}
+
+ent_update_speed();
+ent_handle_solid_collisions();
+
+
+
 </string>
           </argument>
         </arguments>

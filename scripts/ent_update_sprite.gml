@@ -12,35 +12,40 @@ if ( is_above_solid() ) {      // Am I on a solid?
     if (h_move_dir != 0) {     // Am I trying to move?
         if (can_duck && ducking) {    
             // Duck, Duck
-            sprite_current = 2;
+            sprite_current = 2 - 1;
         }
         else {
             // Run or whatever
-             sprite_current = 3;
+            sprite_current = 3 - 1;
+             
+            // set run ani speed based on hsp
+            running = sprites[sprite_current];
+            running[1] = ani_speed_base + ( abs(hsp) - hsp_base ) * ani_speed_factor;
+            sprites[sprite_current] = running;
         }
     }
     else {
         // Just Chillax, y0
-        sprite_current = 1;
+        sprite_current = 1 - 1;
     }
 }
 else {// Am I in the air?
     
     if (can_jump && jumping && !flying) {     
         // Am I in the air following a jump?
-        sprite_current = 4;
+        sprite_current = 4 - 1;
     }
     else if (can_fly && flying) {            
         // Am I flying after a jump?
-        sprite_current = 5;
+        sprite_current = 5 - 1;
     }
     else {                                  
         // Otherwise I'm falling
-        sprite_current = 6;
+        sprite_current = 6 - 1;
     }
 }
 
-set_sprite( sprites[sprite_current - 1] );
+set_sprite( sprites[sprite_current] );
 
 // If the updated sprite has a lower bounding box, it can get us stuck in the ground
 // TODO: test this more and maybe put it somewhere else  
