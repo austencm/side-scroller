@@ -43,6 +43,7 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\init_game.gml</script>
     <scripts name="Entities">
       <script>scripts\is_above_solid.gml</script>
       <script>scripts\stick_to.gml</script>
@@ -142,16 +143,18 @@
         </scripts>
       </scripts>
     </scripts>
-    <script>scripts\scr_init_game.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_debug</font>
   </fonts>
   <objects name="objects">
-    <object>objects\Initializer</object>
-    <object>objects\Rendering</object>
-    <object>objects\Terrain_Generator</object>
-    <object>objects\Camera</object>
+    <objects name="Controllers">
+      <object>objects\Initializer</object>
+      <object>objects\Debug</object>
+      <object>objects\Camera</object>
+      <object>objects\Rendering</object>
+      <object>objects\Terrain_Generator</object>
+    </objects>
     <object>objects\obj_entity</object>
     <object>objects\obj_sticky</object>
     <objects name="player">
@@ -171,7 +174,8 @@
     <room>rooms\demo_movement</room>
     <room>rooms\demo_terrain</room>
   </rooms>
-  <constants number="5">
+  <constants number="6">
+    <constant name="player">obj_player1_body</constant>
     <constant name="BLOCK_SIZE">16</constant>
     <constant name="BASE_GRAV">0.6</constant>
     <constant name="DEBUG">true</constant>

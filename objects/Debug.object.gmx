@@ -2,12 +2,37 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
-  <depth>0</depth>
-  <persistent>0</persistent>
+  <visible>-1</visible>
+  <depth>-1</depth>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Initialize
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,10 +50,67 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Restart
+            <string>/// Handle debug actions
 
-if keyboard_check_pressed(ord("R")) {
+if (!DEBUG)
+    return false;
+
+if keyboard_check_pressed( ord('R') )
     room_restart();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw debug info
+if (!DEBUG)
+    return false;
+
+// Draw GUI
+draw_set_colour(c_white);
+draw_set_font(font_debug);
+
+gui_text = array(
+    "FPS: " + string(fps),
+    "X: " + string(player.x) + "  Y: " + string(player.y),
+    "hsp: " + string(player.hsp) + "  vsp: " + string(player.vsp),
+    "Zoom: " + string(Camera.zoomed),
+    "Fly: " + string(player.can_fly),
+    "",
+    "Left Click for Fullscreen",
+    "Right Click to Teleport",
+    "",
+    "WASD or ARROWS to Move",
+    "SPACE to Jump",
+    "F to Fly",
+    "",
+    "E to Interact",
+    "",
+    "R to Restart",
+    "Z to Zoom",
+    "P for Particles",
+    ""
+);
+
+for (var i = 0; i &lt; array_length_1d(gui_text); i++) {
+    draw_text(10, i * 20 + 10, gui_text[i]);
 }
 </string>
           </argument>
@@ -47,8 +129,5 @@ if keyboard_check_pressed(ord("R")) {
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>10,10</point>
-  </PhysicsShapePoints>
+  <PhysicsShapePoints/>
 </object>
