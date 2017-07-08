@@ -25,8 +25,10 @@ if ( is_above_solid() ) {
     falling = false;
     
     // Turn off the jump flag when we hit the ground
-    if ( can_jump )
+    if ( can_jump ) {
         jumping = false;
+        jumps = 0;
+    }
     // Turn off the fly flag when we hit the ground
     if ( can_fly )
         flying = false;   
