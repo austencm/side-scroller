@@ -27,46 +27,48 @@
             <kind>1</kind>
             <string>/// Initialize
 
-hsp = 0;
-hsp_base = 3;
-ani_speed_base = 0.1;
-ani_speed_factor = 0.015;
+hsp = 0
+hsp_base = 3
+ani_speed_base = 0.1
+ani_speed_factor = 0.015
 // TODO: allow hsp in air to differ from hsp when running
 // TODO: prevent acceleration in air?
 // hsp_air = hsp_base;
-hsp_max = 10;
-h_move_dir = 0; // 1, 0 or -1
+hsp_max = 10
+h_move_dir = 0 // 1, 0 or -1
 
-vsp = 0;
-grav = BASE_GRAV;
-vsp_max = 20;
+vsp = 0
+grav = BASE_GRAV
+vsp_max = 20
+
+equipped = false
 
 // Flags
-can_accel = false;
-can_jump = false;
-can_fly = false;
-can_duck = false;
-can_hop = false;
+can_accel = false
+can_jump = false
+can_fly = false
+can_duck = false
+can_hop = false
 
-falling = false;
+falling = false
 
 // Sprites
 if (sprite_index != -1)  // In case the sprite was set in-editor
-    spr_rest = sprite(sprite_index);
+    spr_rest = sprite(sprite_index)
 else
-    spr_rest = sprite();
-spr_duck = sprite();
-spr_move = sprite();
+    spr_rest = sprite()
+spr_duck = sprite()
+spr_move = sprite()
                           
-spr_jump = sprite();
-spr_fly = sprite();
-spr_fall = sprite();
+spr_jump = sprite()
+spr_fly = sprite()
+spr_fall = sprite()
 
 // Sprites index
-sprite_current = 1 - 1; // set rest animation AKA sprites[0]: 
+sprite_current = 1 - 1 // set rest animation AKA sprites[0]: 
                         // use index +1 - 1 for readability(?)
 
-sprites_update();   // set array of sprites with corresponding Sprites
+sprites_update()   // set array of sprites with corresponding Sprites
 
 
 

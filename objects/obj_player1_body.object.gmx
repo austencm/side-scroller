@@ -25,61 +25,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize
-
-event_inherited(); // Run parent create event
-
-depth = 0;
-
-// Sprites
-player_set_animation_speeds();
-
-spr_rest = sprite(spr_player_body_idle, rest_speed);
-spr_duck = sprite(spr_player_body_duck, duck_speed);
-spr_move = sprite(spr_player_body_run, move_speed);
-                          
-spr_jump = sprite(spr_player_body_jump, jump_speed);
-spr_fly = sprite(spr_player_body_jump, fly_speed);
-spr_fall = sprite(spr_player_body_jump, fall_speed);
-
-sprites_update();
-
-// Props
-hsp_base = 3;
-hsp_max = 8;
-
-// Abilities
-ent_enable_accel(0.1);
-ent_enable_duck( hsp_base, spr_duck );
-ent_enable_jump( 15, 2, spr_jump );
-ent_enable_hop(.15);
-ent_enable_fly( spr_fly );
-
-// Flags
-
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Toggles init
 can_fly = true;
 emit = false;
@@ -125,6 +70,61 @@ part_type_life(global.Particle1,1,150);                       //this is its life
 
 //Define and name the emitters
 global.Particle1_Emitter1=part_emitter_create(global.P_System);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Initialize
+
+event_inherited(); // Run parent create event
+
+depth = 0;
+
+// Sprites
+player_set_animation_speeds();
+
+spr_rest = sprite(spr_player_body_idle, rest_speed);
+spr_duck = sprite(spr_player_body_duck, duck_speed);
+spr_move = sprite(spr_player_body_run, move_speed);
+                          
+spr_jump = sprite(spr_player_body_jump, jump_speed);
+spr_fly = sprite(spr_player_body_jump, fly_speed);
+spr_fall = sprite(spr_player_body_jump, fall_speed);
+
+sprites_update();
+
+// Props
+hsp_base = 3;
+hsp_max = 8;
+
+// Abilities
+ent_enable_accel(0.1);
+ent_enable_duck( hsp_base, spr_duck );
+ent_enable_jump( 15, 2, spr_jump );
+ent_enable_hop(.15);
+ent_enable_fly( spr_fly );
+
+// Flags
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -240,11 +240,19 @@ ent_handle_solid_collisions();
             <string>/// Interaction
 
 if (input_use) {
-    if ( distance_to_object(obj_sticky) &lt; 50 ) {
-        var nearest_item = instance_nearest(x, y, obj_sticky);
+    if (equipped) {
+        with (equipped)
+            stk_detach()
+            
+        equipped = false
+    }
+    else if ( distance_to_object(obj_sticky) &lt; 50 ) {
+        var nearest_item = instance_nearest(x, y, obj_sticky)
         
         with(nearest_item)
-            stk_attach(obj_player1_IN, 30, 30, 50);
+            stk_attach(obj_player1_OUT, -10, 18, -50, 1)
+            
+        equipped = nearest_item
     }
 }
 </string>

@@ -1,7 +1,10 @@
 // stk_update_pos( )
-// Match the position and angle of currently stuck object
+// Match the position/angle/xscale of currently stuck object
 
-if (stuck_to)
-    stick_to(stuck_to, offset_x, offset_y, offset_angle);
-else 
-    event_inherited();
+event_inherited()
+
+if (stuck_to) {
+    var xscale = stuck_to.image_xscale
+    stick_to(stuck_to, offset_x * xscale, offset_y, offset_angle * xscale)
+    image_xscale = xscale
+}
