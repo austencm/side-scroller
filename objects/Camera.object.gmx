@@ -182,6 +182,8 @@ if (draw) {
         "SPACE to Jump",
         "F to Fly",
         "",
+        "E to Interact",
+        "",
         "R to Restart",
         "Z to Zoom",
         "P for Particles",

@@ -51,7 +51,10 @@ can_hop = false;
 falling = false;
 
 // Sprites
-spr_rest = sprite();
+if (sprite_index != -1)  // In case the sprite was set in-editor
+    spr_rest = sprite(sprite_index);
+else
+    spr_rest = sprite();
 spr_duck = sprite();
 spr_move = sprite();
                           

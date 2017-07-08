@@ -38,12 +38,14 @@
         <sprite>sprites\spr_player_duck_IN</sprite>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_sword</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Entities">
       <script>scripts\is_above_solid.gml</script>
+      <script>scripts\stick_to.gml</script>
       <scripts name="Common">
         <script>scripts\ent_update_pos.gml</script>
         <script>scripts\ent_update_speed.gml</script>
@@ -61,6 +63,11 @@
       </scripts>
       <scripts name="Player">
         <script>scripts\player_set_animation_speeds.gml</script>
+      </scripts>
+      <scripts name="Sticky">
+        <script>scripts\stk_attach.gml</script>
+        <script>scripts\stk_detach.gml</script>
+        <script>scripts\stk_update_pos.gml</script>
       </scripts>
     </scripts>
     <scripts name="Terrain Generation">
@@ -131,8 +138,6 @@
         </scripts>
         <scripts name="Misc">
           <script>scripts\mouse_over.gml</script>
-          <script>scripts\stick_to.gml</script>
-          <script>scripts\stick_to_angle.gml</script>
           <script>scripts\within.gml</script>
         </scripts>
       </scripts>
@@ -148,6 +153,7 @@
     <object>objects\Terrain_Generator</object>
     <object>objects\Camera</object>
     <object>objects\obj_entity</object>
+    <object>objects\obj_sticky</object>
     <objects name="player">
       <objects name="player1">
         <object>objects\obj_player1_body</object>
@@ -158,6 +164,7 @@
     </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>
+    <object>objects\obj_sword</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\init__keep_me_first</room>
