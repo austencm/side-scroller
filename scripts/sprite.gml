@@ -4,7 +4,7 @@
 
 var spr_index, spr_speed;
 
-spr_index = spr_square;
+spr_index = SPR_DEFAULT;
 spr_speed = 0;
 
 if (argument_count)

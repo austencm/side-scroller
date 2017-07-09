@@ -46,10 +46,13 @@
     <script>scripts\init_game.gml</script>
     <scripts name="Entities">
       <script>scripts\is_above_solid.gml</script>
+      <script>scripts\is_solid_left.gml</script>
+      <script>scripts\is_solid_right.gml</script>
       <script>scripts\stick_to.gml</script>
       <scripts name="Common">
         <script>scripts\ent_update_pos.gml</script>
         <script>scripts\ent_update_speed.gml</script>
+        <script>scripts\ent_update_state.gml</script>
         <script>scripts\ent_update_sprite.gml</script>
         <script>scripts\ent_handle_solid_collisions.gml</script>
         <script>scripts\ent_enable_accel.gml</script>
@@ -104,6 +107,10 @@
         <script>scripts\sprites_update.gml</script>
         <script>scripts\sprite_set_by_number.gml</script>
       </scripts>
+    </scripts>
+    <scripts name="Debug">
+      <script>scripts\debug_step.gml</script>
+      <script>scripts\debug_draw_gui.gml</script>
     </scripts>
     <scripts name="Vendor">
       <scripts name="Essential Scripts">
@@ -174,13 +181,14 @@
     <room>rooms\demo_movement</room>
     <room>rooms\demo_terrain</room>
   </rooms>
-  <constants number="6">
+  <constants number="7">
     <constant name="player">obj_player1_body</constant>
     <constant name="BLOCK_SIZE">16</constant>
     <constant name="BASE_GRAV">0.6</constant>
     <constant name="DEBUG">true</constant>
     <constant name="view_center_x">view_xview[0] + view_wview[0] / 2</constant>
     <constant name="view_center_y">view_yview[0] + view_hview[0] / 2</constant>
+    <constant name="SPR_DEFAULT">spr_square</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

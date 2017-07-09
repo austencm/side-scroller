@@ -1,5 +1,5 @@
 // is_above_solid( offset )
-// Returns true if object is <offset> or less above a solid
+// Returns true if object is <offset> above a solid
 
 var offset = 1;
 if (argument_count)

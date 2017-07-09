@@ -1,5 +1,5 @@
 // ent_update_speed( )
-// updates speeds and some flags
+// Updates hsp & vsp
 
 // Set horizontal speed
 hsp = abs(hsp);                             // Remove movement direction
@@ -17,19 +17,12 @@ hsp = min(hsp, hsp_max);                    // Cap horizontal speed
 hsp *= h_move_dir;                          // Set movement direction
 
 // Set vertical speed
-vsp += grav;
-vsp = clamp(vsp, -vsp_max, vsp_max); // Clamp vertical speed
-
-// Turn off flags when we hit the ground
-if ( is_above_solid() ) {
-    falling = false;
-    
-    // Turn off the jump flag when we hit the ground
-    if ( can_jump ) {
-        jumping = false;
-        jumps = 0;
-    }
-    // Turn off the fly flag when we hit the ground
-    if ( can_fly )
-        flying = false;   
+vsp += grav
+vsp = clamp(vsp, -vsp_max, vsp_max) // Clamp vertical speed
+// Wall sliding
+if ( // Are we moving into a wall?
+    ( is_solid_left() && h_move_dir == -1 ) ||
+    ( is_solid_right() && h_move_dir == 1 ) 
+) {
+    vsp = min(vsp, 2) // Cap fall speed
 }
