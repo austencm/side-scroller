@@ -10,6 +10,7 @@
     <extension index="3">extensions\Script Trace</extension>
     <extension index="4">extensions\Essential Scripts</extension>
     <extension index="5">extensions\Extended Functions</extension>
+    <extension index="6">extensions\Multi-Object Collisions</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -59,10 +60,12 @@
         <script>scripts\ent_enable_duck.gml</script>
         <script>scripts\ent_enable_hop.gml</script>
         <script>scripts\ent_enable_jump.gml</script>
+        <script>scripts\ent_enable_attack.gml</script>
         <script>scripts\ent_enable_fly.gml</script>
         <script>scripts\ent_duck.gml</script>
         <script>scripts\ent_unduck.gml</script>
         <script>scripts\ent_jump.gml</script>
+        <script>scripts\ent_attack.gml</script>
         <script>scripts\ent_fall.gml</script>
       </scripts>
       <scripts name="Player">
@@ -72,6 +75,14 @@
         <script>scripts\stk_attach.gml</script>
         <script>scripts\stk_detach.gml</script>
         <script>scripts\stk_update_pos.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="Area Effects">
+      <script>scripts\aoe_create.gml</script>
+      <script>scripts\aoe_find_collisions.gml</script>
+      <scripts name="Damage">
+        <script>scripts\aoe_dmg_create.gml</script>
+        <script>scripts\aoe_dmg_apply.gml</script>
       </scripts>
     </scripts>
     <scripts name="Terrain Generation">
@@ -97,6 +108,7 @@
     </scripts>
     <scripts name="Utility">
       <script>scripts\array.gml</script>
+      <script>scripts\ease.gml</script>
       <script>scripts\rand_sign.gml</script>
       <script>scripts\log.gml</script>
       <scripts name="Sprites">
@@ -149,6 +161,14 @@
           <script>scripts\within.gml</script>
         </scripts>
       </scripts>
+      <scripts name="Multiple Collisions">
+        <script>scripts\collision_multiple.gml</script>
+        <script>scripts\collision_rectangle_multiple.gml</script>
+        <script>scripts\collision_circle_multiple.gml</script>
+        <script>scripts\collision_line_multiple.gml</script>
+        <script>scripts\collision_ellipse_multiple.gml</script>
+        <script>scripts\collision_point_multiple.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -174,6 +194,8 @@
     </objects>
     <object>objects\obj_block</object>
     <object>objects\obj_perlin_noise_test</object>
+    <object>objects\obj_aoe</object>
+    <object>objects\obj_aoe_dmg</object>
     <object>objects\obj_sword</object>
   </objects>
   <rooms name="rooms">
@@ -181,10 +203,11 @@
     <room>rooms\demo_movement</room>
     <room>rooms\demo_terrain</room>
   </rooms>
-  <constants number="7">
+  <constants number="8">
     <constant name="player">obj_player1_body</constant>
     <constant name="BLOCK_SIZE">16</constant>
     <constant name="BASE_GRAV">0.6</constant>
+    <constant name="BASE_DRAG">3</constant>
     <constant name="DEBUG">true</constant>
     <constant name="view_center_x">view_xview[0] + view_wview[0] / 2</constant>
     <constant name="view_center_y">view_yview[0] + view_hview[0] / 2</constant>

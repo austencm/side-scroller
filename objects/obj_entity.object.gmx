@@ -49,6 +49,7 @@ can_jump = false
 can_fly = false
 can_duck = false
 can_hop = false
+can_attack  = false
 
 falling = false
 

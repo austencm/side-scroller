@@ -2,19 +2,21 @@
 // Updates hsp & vsp
 
 // Set horizontal speed
-hsp = abs(hsp);                             // Remove movement direction
+hsp = abs(hsp)                              // Remove movement direction
 
 if (h_move_dir != 0) {                      // Am I even trying to move?
     if ( can_duck && ducking && is_above_solid() && !jumping)
-        hsp = hsp_duck;                         // Move at crouch speed
+        hsp = hsp_duck                         // Move at crouch speed
     else if (can_accel)
-        hsp = max(hsp + h_accel, hsp_base);     // Move with acceleration
+        hsp = max(hsp + h_accel, hsp_base)     // Move with acceleration
     else
-        hsp = hsp_base;                         // Move at base speed
+        hsp = hsp_base                         // Move at base speed
 }
 
-hsp = min(hsp, hsp_max);                    // Cap horizontal speed
-hsp *= h_move_dir;                          // Set movement direction
+if (hsp > hsp_max)
+    hsp = max(hsp - BASE_DRAG, hsp_max)        // Apply drag if we're above max speed
+//hsp = min(hsp, hsp_max)                    
+hsp *= h_move_dir                              // Set movement direction
 
 // Set vertical speed
 vsp += grav
