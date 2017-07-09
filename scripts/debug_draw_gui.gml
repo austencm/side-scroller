@@ -15,7 +15,7 @@ if ( instance_exists(player) ) {
         "Fly: " + string(player.can_fly),
         "Jumps: " + string(player.jumps) + " / " + string(player.jumps_max),
         "",
-        "Left Click for Fullscreen",
+        "O for Fullscreen",
         "Right Click to Teleport",
         "",
         "WASD or ARROWS to Move",
