@@ -31,12 +31,14 @@
 w = 1800;
 h = 900;
 
+
 view_wview[0] = w;
 view_hview[0] = h;
 view_wport[0] = w;
 view_hport[0] = h;
 surface_resize(application_surface, w, h);
 display_reset(0, true);
+
 
 // set zoom level of x1
 // set zoom variable

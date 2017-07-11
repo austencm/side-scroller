@@ -13,7 +13,7 @@ if ( instance_exists(player) ) {
         "hsp: " + string(player.hsp) + "  vsp: " + string(player.vsp),
         "Zoom: " + string(Camera.zoomed),
         "Fly: " + string(player.can_fly),
-        "Jumps: " + string(player.jumps) + " / " + string(player.jumps_max),
+        "Jumps: " + string(player.jumps_max - player.jumps) + " / " + string(player.jumps_max),
         "",
         "O for Fullscreen",
         "Right Click to Teleport",

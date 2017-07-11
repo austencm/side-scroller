@@ -51,7 +51,7 @@ hsp_max = 8
 // Abilities
 ent_enable_accel(0.1)
 ent_enable_duck( hsp_base, spr_duck )
-ent_enable_jump( 15, spr_jump, 2 )
+ent_enable_jump( 12, spr_jump, 2 )
 ent_enable_hop(.15)
 ent_enable_fly( spr_fly )
 ent_enable_attack(10, 20, 50)

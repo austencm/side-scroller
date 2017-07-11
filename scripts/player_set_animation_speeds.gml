@@ -5,6 +5,6 @@
 rest_speed = 0.05;
 duck_speed = 0.2;
 move_speed = 0.05;
-jump_speed = 0.2;
+jump_speed = 0.4;
 fly_speed = 0.6;
 fall_speed = 0.4;
