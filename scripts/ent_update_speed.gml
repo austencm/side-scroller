@@ -23,8 +23,9 @@ if h_move_dir != 0 {                      // Am I even trying to move?
 
 if (hsp > hsp_max)
     hsp = max(hsp - BASE_DRAG, hsp_max)        // Apply drag if we're above max speed
-//hsp = min(hsp, hsp_max)                    
-hsp *= h_move_dir                              // Set movement direction
+
+// Set movement direction
+hsp *= h_move_dir
 
 // Set vertical speed
 vsp += grav

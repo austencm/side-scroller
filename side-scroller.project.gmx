@@ -116,8 +116,9 @@
         <script>scripts\sprite_get_index.gml</script>
         <script>scripts\sprite_get_speed.gml</script>
         <script>scripts\set_sprite.gml</script>
+        <script>scripts\set_sprite_by_number.gml</script>
+        <script>scripts\set_sprite_number_by_pair.gml</script>
         <script>scripts\sprites_update.gml</script>
-        <script>scripts\sprite_set_by_number.gml</script>
       </scripts>
     </scripts>
     <scripts name="Debug">

@@ -51,6 +51,8 @@ can_hop = false
 can_attack  = false
 
 falling = false
+jumping = false
+ducking = false
 
 // Sprites
 if (sprite_index != -1)  // In case the sprite was set in-editor
@@ -65,8 +67,7 @@ spr_fly = sprite()
 spr_fall = sprite()
 
 // Sprites index
-sprite_current = 1 - 1 // set rest animation AKA sprites[0]: 
-                        // use index +1 - 1 for readability(?)
+sprite_current = 0 // set rest animation AKA sprites[0]
 
 sprites_update()   // set array of sprites with corresponding Sprites
 

@@ -12,11 +12,13 @@ if ( is_above_solid() ) {      // Am I on a solid?
     if (h_move_dir != 0) {     // Am I trying to move?
         if (can_duck && ducking) {    
             // Duck, Duck
-            sprite_current = 2 - 1;
+            set_sprite_number_by_pair(spr_duck)
+            sprite_current = 1
         }
         else {
             // Run or whatever
-            sprite_current = 3 - 1;
+            set_sprite_number_by_pair(spr_move)
+            sprite_current = 2
              
             // set run ani speed based on hsp
             running = sprites[sprite_current];
@@ -26,22 +28,26 @@ if ( is_above_solid() ) {      // Am I on a solid?
     }
     else {
         // Just Chillax, y0
-        sprite_current = 1 - 1;
+        set_sprite_number_by_pair(spr_rest)
+        sprite_current = 0
     }
 }
 else {// Am I in the air?
     
     if (can_jump && jumping && !flying) {     
         // Am I in the air following a jump?
-        sprite_current = 4 - 1;
+        set_sprite_number_by_pair(spr_jump)
+        sprite_current = 3
     }
     else if (can_fly && flying) {            
         // Am I flying after a jump?
-        sprite_current = 5 - 1;
+        set_sprite_number_by_pair(spr_fly)
+        sprite_current = 4
     }
     else {                                  
         // Otherwise I'm falling
-        sprite_current = 6 - 1;
+        set_sprite_number_by_pair(spr_fall)
+        sprite_current = 5
     }
 }
 
