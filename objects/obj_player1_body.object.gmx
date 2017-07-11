@@ -45,7 +45,7 @@ spr_fall = sprite(spr_player_body_jump, fall_speed)
 sprites_update()
 
 // Props
-hsp_base = 3
+hsp_base = 4.5
 hsp_max = 8
 
 // Abilities
@@ -150,21 +150,29 @@ global.Particle1_Emitter1=part_emitter_create(global.P_System);
             <kind>1</kind>
             <string>/// Input capture
 
-input_right = keyboard_check( ord('D') ) || keyboard_check( vk_right );
-input_left = keyboard_check( ord('A') ) || keyboard_check( vk_left );
-input_up = keyboard_check( ord('W') ) || keyboard_check( vk_up );
+input_right = keyboard_check( ord('D') ) || keyboard_check( vk_right )
+input_left = keyboard_check( ord('A') ) || keyboard_check( vk_left )
+input_up = keyboard_check( ord('W') ) || keyboard_check( vk_up )
+input_down = keyboard_check( ord('S') ) || keyboard_check( vk_down )
+
 input_down_start = keyboard_check_pressed( ord('S') ) || keyboard_check_pressed( vk_down );
 input_down_stop = keyboard_check_released( ord('S') ) || keyboard_check_released( vk_down );
 
 input_jump = keyboard_check_pressed(vk_space);
 input_jump_hold = keyboard_check(vk_space);
 
-input_attack = keyboard_check_pressed( ord('J') );
-input_dash = mouse_check_button_pressed(mb_right);
-input_use = keyboard_check_pressed( ord('E') );
+input_attack = mouse_check_button_pressed(mb_left);
+input_dash = mouse_check_button_pressed(mb_middle);
+input_use = mouse_check_button_pressed(mb_right);
 
-if keyboard_check_pressed( ord('F') )
-    can_fly = !can_fly;
+// Cheats
+if keyboard_check_pressed( ord('C') ) {
+    can_fly = !can_fly
+}
+
+//Toggles
+if keyboard_check_pressed( ord('P') )
+    emit = !emit;
 </string>
           </argument>
         </arguments>
@@ -212,6 +220,7 @@ if input_attack
             <string>/// Motion
 
 h_move_dir = -input_left + input_right; // Will be 1, 0 or -1
+v_move_dir = -input_up + input_down; // Will be 1, 0 or -1
 
 // Duck
 if (input_down_start) {
@@ -222,6 +231,9 @@ else if (input_down_stop)
 
 // Jump or Fly
 if (input_jump) {
+    //if can_jump
+    //    y += (sprite_height / 10) 
+        
     ent_jump();
 } 
 // Short-hop fast fall
@@ -275,30 +287,6 @@ if (input_use) {
         equipped = nearest_item
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Toggles
-
-if keyboard_check_pressed( ord('P') )
-    emit = !emit;
 </string>
           </argument>
         </arguments>

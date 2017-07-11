@@ -27,19 +27,18 @@
             <kind>1</kind>
             <string>/// Initialize
 
+ani_speed_base = 0.1        // animation base speed for running w/ no accel
+ani_speed_factor = 0.015    // scale of animation speed * hsp for every integer value
+
 hsp = 0
 hsp_base = 3
-ani_speed_base = 0.1
-ani_speed_factor = 0.015
-// TODO: allow hsp in air to differ from hsp when running
-// TODO: prevent acceleration in air?
-// hsp_air = hsp_base;
 hsp_max = 10
-h_move_dir = 0 // 1, 0 or -1
+h_move_dir = 0  // 1, 0 or -1
 
 vsp = 0
 grav = BASE_GRAV
 vsp_max = 20
+v_move_dir = 0  // 1, 0 or -1
 
 equipped = false
 
@@ -74,6 +73,37 @@ sprites_update()   // set array of sprites with corresponding Sprites
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Inputs for Reference
+
+input_right = false
+input_left = false
+input_up = false
+input_down = false
+
+input_jump = false
+input_jump_hold = false
+
+input_attack = false
 </string>
           </argument>
         </arguments>
