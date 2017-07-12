@@ -14,9 +14,28 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_square</sprite>
-    <sprite>sprites\spr_rectangle</sprite>
-    <sprite>sprites\spr_block</sprite>
+    <sprites name="masks">
+      <sprite>sprites\spr_rectangle</sprite>
+      <sprite>sprites\spr_square</sprite>
+    </sprites>
+    <sprites name="immovables">
+      <sprites name="blocks">
+        <sprite>sprites\spr_block</sprite>
+        <sprite>sprites\spr_stone_evil</sprite>
+      </sprites>
+      <sprites name="toppings">
+        <sprite>sprites\spr_top_front_grass_evil</sprite>
+        <sprite>sprites\spr_top_front_long_grass_evil</sprite>
+        <sprite>sprites\spr_top_back_grass_evil</sprite>
+        <sprite>sprites\spr_top_back_long_grass_evil</sprite>
+      </sprites>
+      <sprites name="bottomings">
+        <sprite>sprites\spr_btm_front_vines_evil</sprite>
+        <sprite>sprites\spr_btm_front_long_vines_evil</sprite>
+        <sprite>sprites\spr_btm_back_vines_evil</sprite>
+        <sprite>sprites\spr_btm_back_long_vines_evil</sprite>
+      </sprites>
+    </sprites>
     <sprites name="player">
       <sprites name="idle">
         <sprite>sprites\spr_player_body_idle</sprite>
@@ -39,9 +58,13 @@
         <sprite>sprites\spr_player_duck_IN</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_sword</sprite>
+    <sprites name="weapons">
+      <sprite>sprites\spr_sword</sprite>
+    </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_purple_stones</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\init_game.gml</script>
@@ -176,28 +199,44 @@
     <font>fonts\font_debug</font>
   </fonts>
   <objects name="objects">
-    <objects name="Controllers">
+    <objects name="Controller">
       <object>objects\Initializer</object>
       <object>objects\Debug</object>
       <object>objects\Camera</object>
       <object>objects\Rendering</object>
       <object>objects\Terrain_Generator</object>
+      <object>objects\obj_perlin_noise_test</object>
     </objects>
-    <object>objects\obj_entity</object>
-    <object>objects\obj_sticky</object>
-    <objects name="player">
-      <objects name="player1">
-        <object>objects\obj_player1_body</object>
-        <object>objects\obj_player1_component</object>
-        <object>objects\obj_player1_OUT</object>
-        <object>objects\obj_player1_IN</object>
+    <objects name="Entity">
+      <object>objects\obj_entity</object>
+      <object>objects\obj_sticky</object>
+      <objects name="player">
+        <objects name="player1">
+          <object>objects\obj_player1_body</object>
+          <object>objects\obj_player1_component</object>
+          <object>objects\obj_player1_OUT</object>
+          <object>objects\obj_player1_IN</object>
+        </objects>
       </objects>
     </objects>
-    <object>objects\obj_block</object>
-    <object>objects\obj_perlin_noise_test</object>
-    <object>objects\obj_aoe</object>
-    <object>objects\obj_aoe_dmg</object>
-    <object>objects\obj_sword</object>
+    <objects name="Immovable">
+      <objects name="Collidable">
+        <object>objects\obj_block</object>
+      </objects>
+      <objects name="Uncollidable">
+        <object>objects\obj_top_front_evil_grass</object>
+        <object>objects\obj_top_back_evil_grass</object>
+        <object>objects\obj_btm_front_evil_vines</object>
+        <object>objects\obj_btm_back_evil_vines</object>
+      </objects>
+    </objects>
+    <objects name="Effect">
+      <object>objects\obj_aoe</object>
+      <object>objects\obj_aoe_dmg</object>
+    </objects>
+    <objects name="Item">
+      <object>objects\obj_sword</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\init__keep_me_first</room>

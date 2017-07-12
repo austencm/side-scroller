@@ -1,0 +1,64 @@
+BG:
+xxxxxxx
+
+ENEMIES:
+xxxxxxx
+
+PLAYER:
+	-2 weapon types: fist or sword
+		-each has its own layer
+	-possibly armor as well
+
+	- CHANGE DEPTH DEPENDING ON ANIMATION FOR ARMS?!?!?!?!?
+		+ YEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSS
+
+	== depth : item ==
+
+	-10: 
+
+	-09:
+
+	-08:
+
+	-07:
+
+	-06:
+
+	-05:
+
+	-04:
+
+	-03:
+
+	-02:
+
+	-01:
+	
+	00:	torso
+
+	+01:	armor_TORSO
+
+	+02:	arm_IN
+
+	+03:	fist_IN
+
+	+04:	armor_IN
+
+	+05:	sword_IN
+
+	+06:	
+
+	+07:	sword_OUT
+
+	+08:	arm_OUT
+
+	+09:	fist_OUT
+
+	+10:	armor_OUT
+
+
+PARTICLES:
+xxxxxxx
+
+FOREGROUND:
+xxxxxxx
