@@ -12,13 +12,41 @@
     <extension index="5">extensions\Extended Functions</extension>
     <extension index="6">extensions\Multi-Object Collisions</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="player">
+      <sounds name="run">
+        <sounds name="run_dirt">
+          <sound>sound\snd_player_run_dirt_1</sound>
+          <sound>sound\snd_player_run_dirt_2</sound>
+          <sound>sound\snd_player_run_dirt_3</sound>
+          <sound>sound\snd_player_run_dirt_4</sound>
+          <sound>sound\snd_player_run_dirt_5</sound>
+        </sounds>
+      </sounds>
+    </sounds>
+    <sounds name="enemy">
+      <sounds name="sneaky_rock">
+        <sounds name="awaken">
+          <sound>sound\snd_sneaky_rock_awaken</sound>
+        </sounds>
+        <sounds name="jump_begin">
+          <sound>sound\snd_sneaky_rock_jump_oneshot</sound>
+        </sounds>
+        <sounds name="land_begin">
+          <sound>sound\snd_sneaky_rock_land_oneshot</sound>
+        </sounds>
+        <sounds name="hurt">
+          <sound>sound\snd_sneaky_rock_hurt</sound>
+        </sounds>
+      </sounds>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
-    <sprites name="masks">
+    <sprites name="mask">
       <sprite>sprites\spr_rectangle</sprite>
       <sprite>sprites\spr_square</sprite>
     </sprites>
-    <sprites name="immovables">
+    <sprites name="immovable">
       <sprites name="blocks">
         <sprite>sprites\spr_block</sprite>
         <sprite>sprites\spr_stone_evil</sprite>
@@ -58,8 +86,30 @@
         <sprite>sprites\spr_player_duck_IN</sprite>
       </sprites>
     </sprites>
-    <sprites name="weapons">
+    <sprites name="weapon">
       <sprite>sprites\spr_sword</sprite>
+    </sprites>
+    <sprites name="enemy">
+      <sprites name="sneaky_rock">
+        <sprites name="sleep">
+          <sprite>sprites\spr_sneaky_rock_sleep</sprite>
+        </sprites>
+        <sprites name="awaken">
+          <sprite>sprites\spr_sneaky_rock_awaken</sprite>
+        </sprites>
+        <sprites name="idle">
+          <sprite>sprites\spr_sneaky_rock_idle</sprite>
+        </sprites>
+        <sprites name="move">
+          <sprite>sprites\spr_sneaky_rock_n_roll</sprite>
+        </sprites>
+        <sprites name="jump">
+          <sprite>sprites\spr_sneaky_rock_jump</sprite>
+        </sprites>
+        <sprites name="hurt">
+          <sprite>sprites\spr_sneaky_rock_hurt</sprite>
+        </sprites>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background">
